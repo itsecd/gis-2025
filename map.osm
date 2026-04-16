@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="openstreetmap-cgimap 2.1.0 (4094050 spike-08.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <bounds minlat="53.5968148" minlon="49.2183973" maxlat="53.5975916" maxlon="49.2205028"/>
+ <node id="3033534746" visible="true" version="1" changeset="24919421" timestamp="2014-08-21T20:58:55Z" user="massterr" uid="2059021" lat="53.5962034" lon="49.2322051"/>
+ <node id="3044225444" visible="true" version="1" changeset="25035968" timestamp="2014-08-26T18:52:15Z" user="massterr" uid="2059021" lat="53.5975280" lon="49.2185126"/>
+ <node id="3044225445" visible="true" version="1" changeset="25035968" timestamp="2014-08-26T18:52:15Z" user="massterr" uid="2059021" lat="53.5975113" lon="49.2182615"/>
+ <node id="3044225446" visible="true" version="1" changeset="25035968" timestamp="2014-08-26T18:52:15Z" user="massterr" uid="2059021" lat="53.5969953" lon="49.2179762"/>
+ <node id="3044225447" visible="true" version="1" changeset="25035968" timestamp="2014-08-26T18:52:15Z" user="massterr" uid="2059021" lat="53.5968192" lon="49.2200269"/>
+ <node id="3044225448" visible="true" version="1" changeset="25035968" timestamp="2014-08-26T18:52:15Z" user="massterr" uid="2059021" lat="53.5966802" lon="49.2214742"/>
+ <node id="3044225449" visible="true" version="1" changeset="25035968" timestamp="2014-08-26T18:52:15Z" user="massterr" uid="2059021" lat="53.5963047" lon="49.2253731"/>
+ <node id="3044225450" visible="true" version="1" changeset="25035968" timestamp="2014-08-26T18:52:15Z" user="massterr" uid="2059021" lat="53.5959574" lon="49.2290190"/>
+ <node id="3044225451" visible="true" version="1" changeset="25035968" timestamp="2014-08-26T18:52:15Z" user="massterr" uid="2059021" lat="53.5957603" lon="49.2307984"/>
+ <node id="3044225452" visible="true" version="1" changeset="25035968" timestamp="2014-08-26T18:52:15Z" user="massterr" uid="2059021" lat="53.5957462" lon="49.2312571"/>
+ <node id="3044225453" visible="true" version="1" changeset="25035968" timestamp="2014-08-26T18:52:15Z" user="massterr" uid="2059021" lat="53.5944306" lon="49.2449590"/>
+ <node id="3044225454" visible="true" version="1" changeset="25035968" timestamp="2014-08-26T18:52:16Z" user="massterr" uid="2059021" lat="53.5956635" lon="49.2321181"/>
+ <node id="3044225455" visible="true" version="1" changeset="25035968" timestamp="2014-08-26T18:52:16Z" user="massterr" uid="2059021" lat="53.5968481" lon="49.2255407"/>
+ <node id="3044225461" visible="true" version="1" changeset="25035968" timestamp="2014-08-26T18:52:16Z" user="massterr" uid="2059021" lat="53.5951060" lon="49.2379249"/>
+ <node id="13734239039" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5971495" lon="49.2195639"/>
+ <node id="13734239040" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5971040" lon="49.2195515"/>
+ <node id="13734239041" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5970911" lon="49.2196848"/>
+ <node id="13734239042" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5971366" lon="49.2196973"/>
+ <node id="13734239043" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5969812" lon="49.2193787"/>
+ <node id="13734239044" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5969643" lon="49.2195499"/>
+ <node id="13734239045" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5968956" lon="49.2195306"/>
+ <node id="13734239046" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5969126" lon="49.2193594"/>
+ <node id="13734239047" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5972799" lon="49.2197720"/>
+ <node id="13734239048" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5972774" lon="49.2198622"/>
+ <node id="13734239049" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5972246" lon="49.2198579"/>
+ <node id="13734239050" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5972272" lon="49.2197678"/>
+ <node id="13734239051" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5972324" lon="49.2200518"/>
+ <node id="13734239052" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5971925" lon="49.2200423"/>
+ <node id="13734239053" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5971838" lon="49.2201456"/>
+ <node id="13734239054" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5972238" lon="49.2201551"/>
+ <node id="13734239055" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5973566" lon="49.2192231"/>
+ <node id="13734239056" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5972137" lon="49.2191918"/>
+ <node id="13734239057" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5972434" lon="49.2188075"/>
+ <node id="13734239058" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5971797" lon="49.2187935"/>
+ <node id="13734239059" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5971342" lon="49.2193813"/>
+ <node id="13734239060" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5973408" lon="49.2194266"/>
+ <node id="13734239065" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5970312" lon="49.2185759"/>
+ <node id="13734239066" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5969647" lon="49.2185670"/>
+ <node id="13734239067" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5969602" lon="49.2186925"/>
+ <node id="13734239068" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5970277" lon="49.2186955"/>
+ <node id="13734239069" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5968602" lon="49.2188350"/>
+ <node id="13734239070" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5967943" lon="49.2188254"/>
+ <node id="13734239071" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5967881" lon="49.2189466"/>
+ <node id="13734239072" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5968540" lon="49.2189562"/>
+ <node id="13734239073" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5969884" lon="49.2190235"/>
+ <node id="13734239074" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5969239" lon="49.2190085"/>
+ <node id="13734239075" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5969120" lon="49.2191529"/>
+ <node id="13734239076" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5969765" lon="49.2191680"/>
+ <node id="13734239077" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5969391" lon="49.2196467"/>
+ <node id="13734239078" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5968836" lon="49.2196331"/>
+ <node id="13734239079" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5968687" lon="49.2198055"/>
+ <node id="13734239080" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241" lat="53.5969242" lon="49.2198192"/>
+ <way id="300336484" visible="true" version="2" changeset="149437332" timestamp="2024-04-01T14:11:50Z" user="skysamum" uid="1517841">
+  <nd ref="3033534746"/>
+  <nd ref="3044225455"/>
+  <nd ref="3044225444"/>
+  <nd ref="3044225445"/>
+  <tag k="highway" v="unclassified"/>
+ </way>
+ <way id="300336485" visible="true" version="1" changeset="25035968" timestamp="2014-08-26T18:52:17Z" user="massterr" uid="2059021">
+  <nd ref="3044225446"/>
+  <nd ref="3044225447"/>
+  <nd ref="3044225448"/>
+  <nd ref="3044225449"/>
+  <nd ref="3044225450"/>
+  <nd ref="3044225451"/>
+  <nd ref="3044225452"/>
+  <nd ref="3044225454"/>
+  <nd ref="3044225461"/>
+  <nd ref="3044225453"/>
+  <tag k="highway" v="service"/>
+ </way>
+ <way id="1499838431" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241">
+  <nd ref="13734239039"/>
+  <nd ref="13734239040"/>
+  <nd ref="13734239041"/>
+  <nd ref="13734239042"/>
+  <nd ref="13734239039"/>
+  <tag k="addr:city" v="сельское поселение Подстепки"/>
+  <tag k="addr:housenumber" v="4"/>
+  <tag k="addr:street" v="1-я улица"/>
+  <tag k="building" v="yes"/>
+  <tag k="building:levels" v="2"/>
+ </way>
+ <way id="1499838432" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241">
+  <nd ref="13734239043"/>
+  <nd ref="13734239044"/>
+  <nd ref="13734239045"/>
+  <nd ref="13734239046"/>
+  <nd ref="13734239043"/>
+  <tag k="addr:city" v="сельское поселение Подстепки"/>
+  <tag k="addr:housenumber" v="92"/>
+  <tag k="addr:street" v="2-я улица"/>
+  <tag k="building" v="yes"/>
+  <tag k="building:levels" v="2"/>
+ </way>
+ <way id="1499838433" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241">
+  <nd ref="13734239047"/>
+  <nd ref="13734239048"/>
+  <nd ref="13734239049"/>
+  <nd ref="13734239050"/>
+  <nd ref="13734239047"/>
+  <tag k="addr:city" v="сельское поселение Подстепки"/>
+  <tag k="addr:housenumber" v="5"/>
+  <tag k="addr:street" v="1-я улица"/>
+  <tag k="building" v="yes"/>
+  <tag k="building:levels" v="2"/>
+ </way>
+ <way id="1499838434" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241">
+  <nd ref="13734239051"/>
+  <nd ref="13734239052"/>
+  <nd ref="13734239053"/>
+  <nd ref="13734239054"/>
+  <nd ref="13734239051"/>
+  <tag k="addr:city" v="сельское поселение Подстепки"/>
+  <tag k="addr:housenumber" v="1102"/>
+  <tag k="addr:street" v="1-я улица"/>
+  <tag k="building" v="yes"/>
+  <tag k="building:levels" v="2"/>
+ </way>
+ <way id="1499838435" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241">
+  <nd ref="13734239055"/>
+  <nd ref="13734239056"/>
+  <nd ref="13734239057"/>
+  <nd ref="13734239058"/>
+  <nd ref="13734239059"/>
+  <nd ref="13734239060"/>
+  <nd ref="13734239055"/>
+  <tag k="addr:city" v="сельское поселение Подстепки"/>
+  <tag k="addr:housenumber" v="2"/>
+  <tag k="addr:street" v="1-я улица"/>
+  <tag k="building" v="yes"/>
+ </way>
+ <way id="1499838437" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241">
+  <nd ref="13734239065"/>
+  <nd ref="13734239066"/>
+  <nd ref="13734239067"/>
+  <nd ref="13734239068"/>
+  <nd ref="13734239065"/>
+  <tag k="addr:city" v="сельское поселение Подстепки"/>
+  <tag k="addr:housenumber" v="1121"/>
+  <tag k="addr:street" v="2-я улица"/>
+  <tag k="building" v="yes"/>
+  <tag k="building:levels" v="2"/>
+ </way>
+ <way id="1499838438" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241">
+  <nd ref="13734239069"/>
+  <nd ref="13734239070"/>
+  <nd ref="13734239071"/>
+  <nd ref="13734239072"/>
+  <nd ref="13734239069"/>
+  <tag k="addr:city" v="сельское поселение Подстепки"/>
+  <tag k="addr:housenumber" v="1147"/>
+  <tag k="addr:street" v="2-я улица"/>
+  <tag k="building" v="yes"/>
+  <tag k="building:levels" v="2"/>
+ </way>
+ <way id="1499838439" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241">
+  <nd ref="13734239073"/>
+  <nd ref="13734239074"/>
+  <nd ref="13734239075"/>
+  <nd ref="13734239076"/>
+  <nd ref="13734239073"/>
+  <tag k="addr:city" v="сельское поселение Подстепки"/>
+  <tag k="addr:housenumber" v="91"/>
+  <tag k="addr:street" v="2-я улица"/>
+  <tag k="building" v="yes"/>
+  <tag k="building:levels" v="2"/>
+ </way>
+ <way id="1499838440" visible="true" version="1" changeset="181402713" timestamp="2026-04-16T09:03:51Z" user="ichumakov" uid="23965241">
+  <nd ref="13734239077"/>
+  <nd ref="13734239078"/>
+  <nd ref="13734239079"/>
+  <nd ref="13734239080"/>
+  <nd ref="13734239077"/>
+  <tag k="addr:city" v="сельское поселение Подстепки"/>
+  <tag k="addr:housenumber" v="91"/>
+  <tag k="addr:street" v="2-я улица"/>
+  <tag k="building" v="yes"/>
+ </way>
+</osm>
