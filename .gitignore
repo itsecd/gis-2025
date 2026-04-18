@@ -35,3 +35,11 @@ Desktop.ini
 .env
 .env.local
 .env.*.local
+*.duckdb
+*.duckdb.wal
+lab3.py
+overture.json
+client/vite-project/public/overture.json
+geoserver_data/
+init-db/
+docker-compose.yml
