@@ -74,5 +74,5 @@ COPY (
             ON try(ST_Intersects(osm.geom, ST_SetCRS(temp.geometry, 'EPSG:4326'))) = true
     )
 )
-TO 'overture.json'
+TO 'client/vite-project/public/overture.json'
 WITH (FORMAT CSV, HEADER false, QUOTE '');
