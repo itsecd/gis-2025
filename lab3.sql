@@ -1,3 +1,6 @@
+INSTALL spatial;
+INSTALL httpfs;
+
 LOAD spatial;
 LOAD httpfs;
 
