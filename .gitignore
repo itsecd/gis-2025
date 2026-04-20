@@ -39,7 +39,4 @@ Desktop.ini
 *.duckdb.wal
 lab3.py
 overture.json
-client/vite-project/public/overture.json
-geoserver_data/
-init-db/
-docker-compose.yml
+client/package.json
