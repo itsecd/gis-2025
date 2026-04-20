@@ -38,5 +38,4 @@ Desktop.ini
 *.duckdb
 *.duckdb.wal
 lab3.py
-overture.json
 client/package.json

@@ -1,0 +1,44 @@
+{
+  "version": 8,
+  "sources": {
+    "overture": {
+      "type": "geojson",
+      "data": "/overture.json"
+    }
+  },
+  "layers": [
+    {
+      "id": "buildings-my",
+      "type": "fill",
+      "source": "overture",
+      "filter": ["==", ["get", "source_type"], "my"],
+      "paint": {
+        "fill-color": "#22c55e",
+        "fill-opacity": 0.6,
+        "fill-outline-color": "#16a34a"
+      }
+    },
+    {
+      "id": "buildings-osm",
+      "type": "fill",
+      "source": "overture",
+      "filter": ["==", ["get", "source_type"], "osm"],
+      "paint": {
+        "fill-color": "#3b82f6",
+        "fill-opacity": 0.6,
+        "fill-outline-color": "#2563eb"
+      }
+    },
+    {
+      "id": "buildings-ml",
+      "type": "fill",
+      "source": "overture",
+      "filter": ["==", ["get", "source_type"], "ml"],
+      "paint": {
+        "fill-color": "#f97316",
+        "fill-opacity": 0.6,
+        "fill-outline-color": "#ea580c"
+      }
+    }
+  ]
+}

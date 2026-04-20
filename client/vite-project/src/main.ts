@@ -11,7 +11,6 @@ import ImageWMS from 'ol/source/ImageWMS';
 import GeoJSON from 'ol/format/GeoJSON';
 import { fromLonLat } from 'ol/proj';
 import { stylefunction } from 'ol-mapbox-style';
-import { mapboxStyle } from './mapbox-style';
 
 const overtureSource = new VectorSource({
   url: '/overture.json',
@@ -20,7 +19,9 @@ const overtureSource = new VectorSource({
 
 const overtureLayer = new VectorLayer({ source: overtureSource });
 
-stylefunction(overtureLayer, mapboxStyle, 'overture');
+fetch('/style.json')
+  .then((r) => r.json())
+  .then((style) => stylefunction(overtureLayer, style, 'overture'));
 
 new Map({
   target: 'map',
