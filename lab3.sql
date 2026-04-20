@@ -33,6 +33,21 @@ SELECT href, xmin, ymin, xmax, ymax
 FROM links
 JOIN bboxes ON links.id = bboxes.id;
 
+SET VARIABLE item_url = (
+    SELECT DISTINCT
+        'https://stac.overturemaps.org/2026-04-15.0/buildings/building/' || links.href
+    FROM links
+    JOIN osm_data
+        ON ST_Xmin(geom) BETWEEN links.xmin AND links.xmax
+        AND ST_Ymin(geom) BETWEEN links.ymin AND links.ymax
+    LIMIT 1
+);
+
+SET VARIABLE s3_href = (
+    SELECT assets.aws.alternate.s3.href
+    FROM read_json(getvariable('item_url'))
+);
+
 CREATE TABLE smth_data AS
 WITH osm_data_geom_bbox AS (
     SELECT ST_Extent_Agg(geom) geom
@@ -46,7 +61,7 @@ osm_data_bbox AS (
     FROM osm_data_geom_bbox
 )
 SELECT * EXCLUDE geometry, geometry
-FROM read_parquet('s3://overturemaps-us-west-2/release/2026-04-15.0/theme=buildings/type=building/part-00479-7f152406-ef1b-5bb5-9814-22f03c679bb6-c000.zstd.parquet') data
+FROM read_parquet(getvariable('s3_href')) data
 JOIN osm_data_bbox
     ON ST_Xmin(geometry) BETWEEN osm_data_bbox.xmin AND osm_data_bbox.xmax
     AND ST_Ymin(geometry) BETWEEN osm_data_bbox.ymin AND osm_data_bbox.ymax
