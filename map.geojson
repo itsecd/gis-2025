@@ -5,13 +5,15 @@
             "type": "Feature",
             "id": "way/1499838431",
             "properties": {
-                "timestamp": "2026-04-16T09:03:51Z",
-                "version": "1",
-                "changeset": "181402713",
+                "timestamp": "2026-04-26T08:37:50Z",
+                "version": "2",
+                "changeset": "181834828",
                 "user": "ichumakov",
                 "uid": "23965241",
                 "addr:city": "сельское поселение Подстепки",
+                "addr:district": "Ставропольский район",
                 "addr:housenumber": "4",
+                "addr:place": "СДТ «Лада»",
                 "addr:street": "1-я улица",
                 "building": "yes",
                 "building:levels": "2",
@@ -49,13 +51,15 @@
             "type": "Feature",
             "id": "way/1499838432",
             "properties": {
-                "timestamp": "2026-04-16T09:03:51Z",
-                "version": "1",
-                "changeset": "181402713",
+                "timestamp": "2026-04-26T08:37:50Z",
+                "version": "2",
+                "changeset": "181834828",
                 "user": "ichumakov",
                 "uid": "23965241",
                 "addr:city": "сельское поселение Подстепки",
+                "addr:district": "Ставропольский район",
                 "addr:housenumber": "92",
+                "addr:place": "СДТ «Лада»",
                 "addr:street": "2-я улица",
                 "building": "yes",
                 "building:levels": "2",
@@ -93,13 +97,15 @@
             "type": "Feature",
             "id": "way/1499838433",
             "properties": {
-                "timestamp": "2026-04-16T09:03:51Z",
-                "version": "1",
-                "changeset": "181402713",
+                "timestamp": "2026-04-26T08:37:50Z",
+                "version": "2",
+                "changeset": "181834828",
                 "user": "ichumakov",
                 "uid": "23965241",
                 "addr:city": "сельское поселение Подстепки",
+                "addr:district": "Ставропольский район",
                 "addr:housenumber": "5",
+                "addr:place": "СДТ «Лада»",
                 "addr:street": "1-я улица",
                 "building": "yes",
                 "building:levels": "2",
@@ -137,13 +143,15 @@
             "type": "Feature",
             "id": "way/1499838434",
             "properties": {
-                "timestamp": "2026-04-16T09:03:51Z",
-                "version": "1",
-                "changeset": "181402713",
+                "timestamp": "2026-04-26T08:37:50Z",
+                "version": "2",
+                "changeset": "181834828",
                 "user": "ichumakov",
                 "uid": "23965241",
                 "addr:city": "сельское поселение Подстепки",
+                "addr:district": "Ставропольский район",
                 "addr:housenumber": "1102",
+                "addr:place": "СДТ «Лада»",
                 "addr:street": "1-я улица",
                 "building": "yes",
                 "building:levels": "2",
@@ -181,15 +189,18 @@
             "type": "Feature",
             "id": "way/1499838435",
             "properties": {
-                "timestamp": "2026-04-16T09:03:51Z",
-                "version": "1",
-                "changeset": "181402713",
+                "timestamp": "2026-04-26T08:44:26Z",
+                "version": "3",
+                "changeset": "181835031",
                 "user": "ichumakov",
                 "uid": "23965241",
                 "addr:city": "сельское поселение Подстепки",
+                "addr:district": "Ставропольский район",
                 "addr:housenumber": "2",
+                "addr:place": "СДТ «Лада»",
                 "addr:street": "1-я улица",
                 "building": "yes",
+                "building:levels": "1",
                 "id": "way/1499838435"
             },
             "geometry": {
@@ -230,15 +241,63 @@
         },
         {
             "type": "Feature",
-            "id": "way/1499838437",
+            "id": "way/1499838436",
             "properties": {
-                "timestamp": "2026-04-16T09:03:51Z",
-                "version": "1",
-                "changeset": "181402713",
+                "timestamp": "2026-04-26T08:37:50Z",
+                "version": "2",
+                "changeset": "181834828",
                 "user": "ichumakov",
                 "uid": "23965241",
                 "addr:city": "сельское поселение Подстепки",
+                "addr:district": "Ставропольский район",
+                "addr:housenumber": "28",
+                "addr:place": "СДТ «Лада»",
+                "addr:street": "1-я улица",
+                "building": "yes",
+                "building:levels": "2",
+                "id": "way/1499838436"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            49.2182459,
+                            53.5970717
+                        ],
+                        [
+                            49.2182127,
+                            53.5969958
+                        ],
+                        [
+                            49.2182943,
+                            53.5969832
+                        ],
+                        [
+                            49.2183276,
+                            53.5970591
+                        ],
+                        [
+                            49.2182459,
+                            53.5970717
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "id": "way/1499838437",
+            "properties": {
+                "timestamp": "2026-04-26T08:37:50Z",
+                "version": "2",
+                "changeset": "181834828",
+                "user": "ichumakov",
+                "uid": "23965241",
+                "addr:city": "сельское поселение Подстепки",
+                "addr:district": "Ставропольский район",
                 "addr:housenumber": "1121",
+                "addr:place": "СДТ «Лада»",
                 "addr:street": "2-я улица",
                 "building": "yes",
                 "building:levels": "2",
@@ -276,13 +335,15 @@
             "type": "Feature",
             "id": "way/1499838438",
             "properties": {
-                "timestamp": "2026-04-16T09:03:51Z",
-                "version": "1",
-                "changeset": "181402713",
+                "timestamp": "2026-04-26T08:37:50Z",
+                "version": "2",
+                "changeset": "181834828",
                 "user": "ichumakov",
                 "uid": "23965241",
                 "addr:city": "сельское поселение Подстепки",
+                "addr:district": "Ставропольский район",
                 "addr:housenumber": "1147",
+                "addr:place": "СДТ «Лада»",
                 "addr:street": "2-я улица",
                 "building": "yes",
                 "building:levels": "2",
@@ -320,13 +381,15 @@
             "type": "Feature",
             "id": "way/1499838439",
             "properties": {
-                "timestamp": "2026-04-16T09:03:51Z",
-                "version": "1",
-                "changeset": "181402713",
+                "timestamp": "2026-04-26T08:37:50Z",
+                "version": "2",
+                "changeset": "181834828",
                 "user": "ichumakov",
                 "uid": "23965241",
                 "addr:city": "сельское поселение Подстепки",
+                "addr:district": "Ставропольский район",
                 "addr:housenumber": "91",
+                "addr:place": "СДТ «Лада»",
                 "addr:street": "2-я улица",
                 "building": "yes",
                 "building:levels": "2",
@@ -364,15 +427,18 @@
             "type": "Feature",
             "id": "way/1499838440",
             "properties": {
-                "timestamp": "2026-04-16T09:03:51Z",
-                "version": "1",
-                "changeset": "181402713",
+                "timestamp": "2026-04-26T08:44:26Z",
+                "version": "3",
+                "changeset": "181835031",
                 "user": "ichumakov",
                 "uid": "23965241",
                 "addr:city": "сельское поселение Подстепки",
+                "addr:district": "Ставропольский район",
                 "addr:housenumber": "91",
+                "addr:place": "СДТ «Лада»",
                 "addr:street": "2-я улица",
                 "building": "yes",
+                "building:levels": "2",
                 "id": "way/1499838440"
             },
             "geometry": {
@@ -399,40 +465,6 @@
                             49.2196467,
                             53.5969391
                         ]
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "id": "way/300336484",
-            "properties": {
-                "timestamp": "2024-04-01T14:11:50Z",
-                "version": "2",
-                "changeset": "149437332",
-                "user": "skysamum",
-                "uid": "1517841",
-                "highway": "unclassified",
-                "id": "way/300336484"
-            },
-            "geometry": {
-                "type": "LineString",
-                "coordinates": [
-                    [
-                        49.2322051,
-                        53.5962034
-                    ],
-                    [
-                        49.2255407,
-                        53.5968481
-                    ],
-                    [
-                        49.2185126,
-                        53.597528
-                    ],
-                    [
-                        49.2182615,
-                        53.5975113
                     ]
                 ]
             }
