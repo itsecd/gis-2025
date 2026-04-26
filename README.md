@@ -1,3 +1,3 @@
 # Лабораторные работы по курсу "Анализ и безопасность геоданных"
 
-Пакет правок: https://www.openstreetmap.org/changeset/179223283
+Пакет правок: https://www.openstreetmap.org/changeset/181045471
