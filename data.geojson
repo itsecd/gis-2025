@@ -1756,7 +1756,7 @@
                 "addr:place": "СДТ \"Сокское-1\", массив Сокский",
                 "building": "house",
                 "building:levels": "2",
-                "district": "Красноярский район",
+                "addr:district": "Красноярский район",
                 "id": "way/1497658439"
             },
             "geometry": {
@@ -1800,7 +1800,7 @@
                 "addr:place": "СДТ \"Сокское-1\", массив Сокский",
                 "building": "house",
                 "building:levels": "1",
-                "district": "Красноярский район",
+                "addr:district": "Красноярский район",
                 "id": "way/1497658440"
             },
             "geometry": {
@@ -1844,7 +1844,7 @@
                 "addr:place": "СДТ \"Сокское-1\", массив Сокский",
                 "building": "house",
                 "building:levels": "2",
-                "district": "Красноярский район",
+                "addr:district": "Красноярский район",
                 "id": "way/1497658441"
             },
             "geometry": {
@@ -1888,7 +1888,7 @@
                 "addr:place": "СДТ \"Сокское-1\", массив Сокский",
                 "building": "house",
                 "building:levels": "1",
-                "district": "Красноярский район",
+                "addr:district": "Красноярский район",
                 "id": "way/1497658442"
             },
             "geometry": {
@@ -1932,7 +1932,7 @@
                 "addr:place": "СДТ \"Сокское-1\", массив Сокский",
                 "building": "house",
                 "building:levels": "1",
-                "district": "Красноярский район",
+                "addr:district": "Красноярский район",
                 "id": "way/1497658443"
             },
             "geometry": {
@@ -1976,7 +1976,7 @@
                 "addr:place": "СДТ \"Сокское-1\", массив Сокский",
                 "building": "house",
                 "building:levels": "1",
-                "district": "Красноярский район",
+                "addr:district": "Красноярский район",
                 "id": "way/1497658444"
             },
             "geometry": {
@@ -2020,7 +2020,7 @@
                 "addr:place": "СДТ \"Сокское-1\", массив Сокский",
                 "building": "house",
                 "building:levels": "2",
-                "district": "Красноярский район",
+                "addr:district": "Красноярский район",
                 "id": "way/1497658445"
             },
             "geometry": {
@@ -2064,7 +2064,7 @@
                 "addr:place": "СДТ \"Сокское-1\", массив Сокский",
                 "building": "house",
                 "building:levels": "2",
-                "district": "Красноярский район",
+                "addr:district": "Красноярский район",
                 "id": "way/1497658446"
             },
             "geometry": {
@@ -2108,7 +2108,7 @@
                 "addr:place": "СДТ \"Сокское-1\", массив Сокский",
                 "building": "house",
                 "building:levels": "2",
-                "district": "Красноярский район",
+                "addr:district": "Красноярский район",
                 "id": "way/1497658447"
             },
             "geometry": {
@@ -2160,7 +2160,7 @@
                 "addr:place": "СДТ \"Сокское-1\", массив Сокский",
                 "building": "house",
                 "building:levels": "2",
-                "district": "Красноярский район",
+                "addr:district": "Красноярский район",
                 "id": "way/1497658448"
             },
             "geometry": {
@@ -2204,7 +2204,7 @@
                 "addr:place": "СДТ \"Сокское-1\", массив Сокский",
                 "building": "house",
                 "building:levels": "2",
-                "district": "Красноярский район",
+                "addr:district": "Красноярский район",
                 "id": "way/1497658449"
             },
             "geometry": {
