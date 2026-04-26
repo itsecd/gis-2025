@@ -8,6 +8,8 @@ import OSM from 'ol/source/OSM';
 import VectorSource from 'ol/source/Vector';
 import GeoJSON from 'ol/format/GeoJSON';
 import { applyStyle } from 'ol-mapbox-style';
+import ImageLayer from 'ol/layer/Image';
+import ImageWMS from 'ol/source/ImageWMS';
 
 const overtureMapboxStyle = {
   version: 8,
@@ -64,6 +66,30 @@ const osmLayer = new TileLayer({
   source: new OSM()
 });
 
+const buildingsLayer = new ImageLayer({
+  source: new ImageWMS({
+    url: 'http://localhost:8080/geoserver/gis/wms',
+    params: {
+      LAYERS: 'gis:buildings',
+      TILED: true
+    },
+    ratio: 1,
+    serverType: 'geoserver'
+  })
+});
+
+const roadsLayer = new ImageLayer({
+  source: new ImageWMS({
+    url: 'http://localhost:8080/geoserver/gis/wms',
+    params: {
+      LAYERS: 'gis:roads',
+      TILED: true
+    },
+    ratio: 1,
+    serverType: 'geoserver'
+  })
+});
+
 const overtureSource = new VectorSource();
 
 const overtureLayer = new VectorLayer({
@@ -79,6 +105,8 @@ const map = new Map({
   target: 'map',
   layers: [
     osmLayer,
+    buildingsLayer,
+    roadsLayer,
     overtureLayer
   ],
   view: new View({
