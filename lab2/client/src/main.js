@@ -6,6 +6,10 @@ import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
 import ImageLayer from 'ol/layer/Image';
 import ImageWMS from 'ol/source/ImageWMS';
+import VectorLayer from 'ol/layer/Vector';
+import VectorSource from 'ol/source/Vector';
+import GeoJSON from 'ol/format/GeoJSON';
+import { applyStyle } from 'ol-mapbox-style';
 import { fromLonLat } from 'ol/proj';
 
 const osmLayer = new TileLayer({
@@ -50,6 +54,47 @@ const poiLayer = new ImageLayer({
   })
 });
 
+const overtureSource = new VectorSource({
+  url: '/overture.geojson',
+  format: new GeoJSON()
+});
+
+const overtureLayer = new VectorLayer({
+  source: overtureSource,
+});
+
+// Стилевой объект Mapbox Style для хороплета
+const mbs = {
+  version: 8,
+  sources: {
+    'overture': {
+      type: 'geojson',
+      data: '/overture.geojson'
+    }
+  },
+  layers: [
+    {
+      id: 'overture-layer',
+      type: 'fill',
+      source: 'overture',
+      paint: {
+        'fill-color': [
+          'match',
+          ['get', 'source_type'],
+          'my', 'rgba(0, 128, 0, 0.7)',
+          'osm', 'rgba(0, 0, 255, 0.7)',
+          'ml', 'rgba(255, 165, 0, 0.7)',
+          /* default */ '#000000'
+        ],
+        'fill-outline-color': '#000000'
+      }
+    }
+  ]
+};
+
+// Применяем Mapbox Style к слою
+applyStyle(overtureLayer, mbs, 'overture');
+
 const center = fromLonLat([49.279, 53.601]);
 
 const map = new Map({
@@ -58,7 +103,8 @@ const map = new Map({
     osmLayer,
     roadsLayer,
     buildingsLayer,
-    poiLayer
+    poiLayer,
+    overtureLayer
   ],
   view: new View({
     center: center,
@@ -70,7 +116,8 @@ const toggles = [
   { id: 'toggle-osm', layer: osmLayer },
   { id: 'toggle-roads', layer: roadsLayer },
   { id: 'toggle-buildings', layer: buildingsLayer },
-  { id: 'toggle-poi', layer: poiLayer }
+  { id: 'toggle-poi', layer: poiLayer },
+  { id: 'toggle-overture', layer: overtureLayer }
 ];
 
 toggles.forEach(({ id, layer }) => {
