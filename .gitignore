@@ -1,0 +1,5 @@
+geoserver_data/tmp/
+geoserver_data/temp/
+geoserver_data/logs/
+geoserver_data/monitoring/
+geoserver_data/tomcat_pass.txt
