@@ -7,17 +7,8 @@ import ImageLayer from 'ol/layer/Image'
 import ImageWMS from 'ol/source/ImageWMS'
 import { fromLonLat } from 'ol/proj'
 
-const map = new Map({
-  target: 'map',
-  layers: [
-    new TileLayer({
-      source: new OSM()
-    })
-  ],
-  view: new View({
-  center: fromLonLat([86.098705, 54.283765]),
-  zoom: 16
-  })
+const baseLayer = new TileLayer({
+  source: new OSM()
 })
 
 const buildingsLayer = new ImageLayer({
@@ -32,8 +23,6 @@ const buildingsLayer = new ImageLayer({
   })
 })
 
-map.addLayer(buildingsLayer)
-
 const roadsLayer = new ImageLayer({
   source: new ImageWMS({
     url: 'http://localhost:8080/geoserver/gis/wms',
@@ -43,8 +32,6 @@ const roadsLayer = new ImageLayer({
     }
   })
 })
-
-map.addLayer(roadsLayer)
 
 const poiLayer = new ImageLayer({
   source: new ImageWMS({
@@ -58,4 +45,16 @@ const poiLayer = new ImageLayer({
   })
 })
 
-map.addLayer(poiLayer)
+const map = new Map({
+  target: 'map',
+  layers: [
+    baseLayer,
+    buildingsLayer,
+    roadsLayer,
+    poiLayer
+  ],
+  view: new View({
+    center: fromLonLat([86.098705, 54.283765]),
+    zoom: 16
+  })
+})
