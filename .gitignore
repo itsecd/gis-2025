@@ -26,3 +26,13 @@ yarn.lock
 # OS specific files
 .DS_Store
 Thumbs.db
+
+node_modules/
+dist/
+
+client/geo-lab2-client/public/icons.svg
+client/geo-lab2-client/src/assets/
+
+geoserver_data/**/*.bak
+geoserver_data/**/*.properties
+geoserver_data/**/tomcat_pass.txt
