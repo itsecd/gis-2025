@@ -10,7 +10,7 @@ SELECT * FROM ST_Read('..\gis-2026\map.geojson');
 create table if not exists links as
 WITH raw_data AS (
 	SELECT *
-	FROM '..\collection.json'
+	FROM 'https://stac.overturemaps.org/2026-04-15.0/buildings/building/collection.json'
 ),
 raw_links AS (
 	select unnest(links) as link
