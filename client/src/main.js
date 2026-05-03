@@ -42,48 +42,6 @@ const poiLayer = new ImageLayer({
   }),
 });
 
-const mapboxStyle = {
-  version: 8,
-  sources: {
-    overture: {
-      type: "geojson",
-      data: "/overture.json",
-    },
-  },
-  layers: [
-    {
-      id: "overture-my",
-      type: "fill",
-      source: "overture",
-      filter: ["==", ["get", "source_type"], "my"],
-      paint: {
-        "fill-color": "rgba(34, 197, 94, 0.6)",
-        "fill-outline-color": "#15803d",
-      },
-    },
-    {
-      id: "overture-osm",
-      type: "fill",
-      source: "overture",
-      filter: ["==", ["get", "source_type"], "osm"],
-      paint: {
-        "fill-color": "rgba(59, 130, 246, 0.6)",
-        "fill-outline-color": "#1d4ed8",
-      },
-    },
-    {
-      id: "overture-ml",
-      type: "fill",
-      source: "overture",
-      filter: ["==", ["get", "source_type"], "ml"],
-      paint: {
-        "fill-color": "rgba(249, 115, 22, 0.6)",
-        "fill-outline-color": "#c2410c",
-      },
-    },
-  ],
-};
-
 const overtureSource = new VectorSource({
   url: "/overture.json",
   format: new GeoJSON(),
@@ -93,6 +51,7 @@ const overtureLayer = new VectorLayer({
   source: overtureSource,
 });
 
+const mapboxStyle = await fetch("/style.json").then((r) => r.json());
 stylefunction(overtureLayer, mapboxStyle, "overture");
 
 new Map({
