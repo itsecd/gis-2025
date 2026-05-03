@@ -5,6 +5,7 @@ import View from "ol/View";
 
 import TileLayer from "ol/layer/Tile";
 import OSM from "ol/source/OSM";
+import TileWMS from "ol/source/TileWMS";
 
 import VectorLayer from "ol/layer/Vector";
 import VectorSource from "ol/source/Vector";
@@ -34,47 +35,44 @@ const overtureLayer = new VectorLayer({
   }),
 });
 
-applyStyle(overtureLayer, {
-  version: 8,
-  sources: {
-    overture: {
-      type: "geojson",
-      data: "overture.geojson",
+const buildingsLayer = new TileLayer({
+  source: new TileWMS({
+    url: "http://localhost:8080/geoserver/gis/wms",
+    params: {
+      LAYERS: "gis:buildings",
+      TILED: true,
     },
-  },
-  layers: [
-    {
-      id: "my",
-      type: "fill",
-      source: "overture",
-      filter: ["==", ["get", "source_type"], "my"],
-      paint: {
-        "fill-color": "green",
-        "fill-opacity": 0.5,
-      },
-    },
-    {
-      id: "osm",
-      type: "fill",
-      source: "overture",
-      filter: ["==", ["get", "source_type"], "osm"],
-      paint: {
-        "fill-color": "blue",
-        "fill-opacity": 0.5,
-      },
-    },
-    {
-      id: "ml",
-      type: "fill",
-      source: "overture",
-      filter: ["==", ["get", "source_type"], "ml"],
-      paint: {
-        "fill-color": "orange",
-        "fill-opacity": 0.5,
-      },
-    },
-  ],
+    serverType: "geoserver",
+  }),
 });
 
+const roadsLayer = new TileLayer({
+  source: new TileWMS({
+    url: "http://localhost:8080/geoserver/gis/wms",
+    params: {
+      LAYERS: "gis:roads",
+      TILED: true,
+    },
+    serverType: "geoserver",
+  }),
+});
 
+const poiLayer = new TileLayer({
+  source: new TileWMS({
+    url: "http://localhost:8080/geoserver/gis/wms",
+    params: {
+      LAYERS: "gis:poi",
+      TILED: true,
+    },
+    serverType: "geoserver",
+  }),
+});
+
+applyStyle(overtureLayer, "/style.json");
+
+
+
+map.addLayer(buildingsLayer);
 map.addLayer(overtureLayer);
+map.addLayer(roadsLayer);
+map.addLayer(poiLayer);

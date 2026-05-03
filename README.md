@@ -25,4 +25,4 @@
 - выполнена классификация объектов по полю `source_type` (`my`, `osm`, `ml`);
 - сформирован итоговый GeoJSON-слой `overture.geojson`;
 - реализована визуализация слоя в веб-клиенте:
- <img width="1612" height="954" alt="image" src="https://github.com/user-attachments/assets/5bfcc1b9-7ead-44c4-abaf-a4eac7654774" />
+  ![Клиент](screenshots/client_2.png)

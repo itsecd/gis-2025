@@ -22,10 +22,10 @@ con.execute("""
 CREATE OR REPLACE TABLE my_buildings_only AS
 SELECT *
 FROM my_buildings
-WHERE ST_GeometryType(geom) = 'POLYGON'
+WHERE user = 'Beni_nika_007'
 """)
 
-print("твои здания готовы")
+print("здания готовы")
 
 # bbox
 bbox = con.execute("""
@@ -62,21 +62,27 @@ ALTER TABLE overture_buildings
 ADD COLUMN source_type TEXT
 """)
 
-# отмечаем my
+
 con.execute("""
 UPDATE overture_buildings
+       SET source_type = NULL;
+""")
+
+con.execute("""
+UPDATE overture_buildings ob
 SET source_type = 'my'
 WHERE EXISTS (
     SELECT 1
-    FROM my_buildings_only m
-    WHERE ST_Intersects(
-        ST_SetCRS(overture_buildings.geometry, 'EPSG:4326'),
-        m.geom
-    )
+    FROM my_buildings_only gd
+    WHERE gd.user = 'Beni_nika_007'
+        AND ST_Contains(
+            gd.geom,
+            ST_Centroid(ob.geometry)
+        )
+        AND ST_Area(gd.geom) < 0.000001
 )
 """)
 
-# остальные
 con.execute("""
 UPDATE overture_buildings
 SET source_type = CASE
@@ -86,20 +92,21 @@ END
 WHERE source_type IS NULL
 """)
 
-# проверка
-stats = con.execute("""
-SELECT source_type, COUNT(*)
-FROM overture_buildings
-GROUP BY source_type
-""").fetchall()
-
-print("результат:", stats)
-
-# экспорт GeoJSON
-con.execute("SET geometry_always_xy = true;")
-
 con.execute("""
 COPY (
+    SELECT 
+        geom AS geometry,
+        'my' AS source_type,
+        uid AS id,
+        NULL AS name,
+        building AS class,
+        NULL AS height,
+        NULL AS level,
+        NULL AS sources
+    FROM my_buildings_only
+
+    UNION ALL
+
     SELECT 
         geometry,
         source_type,
@@ -110,6 +117,8 @@ COPY (
         level,
         CAST(sources AS VARCHAR) AS sources
     FROM overture_buildings
-) TO 'lab3/overture.geojson' 
+    WHERE source_type != 'my'  
+
+) TO 'lab3/overture.geojson'
 WITH (FORMAT GDAL, DRIVER 'GeoJSON')
 """)
