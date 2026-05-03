@@ -95,5 +95,5 @@ COPY (
             )
         ) AS geojson
     FROM overture_with_source
-) TO 'C:\Users\Nikita\Documents\GitHub\gis-2026\gis\overture_map.geojson' 
+) TO 'C:\Users\Nikita\Documents\GitHub\gis-2026\gis\client\public\overture_map.geojson' 
 WITH (FORMAT JSON, ARRAY false);
