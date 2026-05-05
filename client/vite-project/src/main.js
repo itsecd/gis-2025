@@ -6,7 +6,6 @@ import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
 import ImageLayer from 'ol/layer/Image';
 import ImageWMS from 'ol/source/ImageWMS';
-import './style.css';
 
 const map = new Map({
   target: 'map',
@@ -16,8 +15,8 @@ const map = new Map({
     })
   ],
   view: new View({
-    center: fromLonLat([37.6, 55.7]),
-    zoom: 12
+    center: fromLonLat([50.451461, 53.229522]),
+    zoom: 16
   })
 });
 
