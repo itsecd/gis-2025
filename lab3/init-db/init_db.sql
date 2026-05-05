@@ -25,10 +25,10 @@ FROM read_parquet(
     's3://overturemaps-us-west-2/release/2026-04-15.0/theme=buildings/type=building/*',
     hive_partitioning=1
 )
-WHERE ST_XMin(geom) <= (SELECT ST_XMax(extent) FROM bbox LIMIT 1)
-AND ST_XMax(geom) >= (SELECT ST_XMin(extent) FROM bbox LIMIT 1)
-AND ST_YMin(geom) <= (SELECT ST_YMax(extent) FROM bbox LIMIT 1)
-AND ST_YMax(geom) >= (SELECT ST_YMin(extent) FROM bbox LIMIT 1);
+WHERE bbox.xmin <= (SELECT ST_XMax(extent) FROM bbox LIMIT 1)
+  AND bbox.xmax >= (SELECT ST_XMin(extent) FROM bbox LIMIT 1)
+  AND bbox.ymin <= (SELECT ST_YMax(extent) FROM bbox LIMIT 1)
+  AND bbox.ymax >= (SELECT ST_YMin(extent) FROM bbox LIMIT 1);
 
 ALTER TABLE overture_buildings 
 ADD COLUMN source_type TEXT;
