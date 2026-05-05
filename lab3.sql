@@ -25,22 +25,22 @@ FROM my_buildings;
 INSTALL httpfs;
 LOAD httpfs;
 
--- DROP TABLE IF EXISTS overture_buildings;
+DROP TABLE IF EXISTS overture_buildings;
 
--- SET allow_asterisks_in_http_paths = true;
--- SET s3_region='us-west-2';
--- SET s3_url_style='path';
+SET allow_asterisks_in_http_paths = true;
+SET s3_region='us-west-2';
+SET s3_url_style='path';
 
--- CREATE TABLE overture_buildings AS
--- SELECT *
--- FROM read_parquet(
---     's3://overturemaps-us-west-2/release/2026-04-15.0/theme=buildings/type=building/*.parquet',
---     hive_partitioning=1
--- )
--- WHERE bbox.xmin <= 87.1215765
---   AND bbox.xmax >= 83.8037054
---   AND bbox.ymin <= 54.9050437
---   AND bbox.ymax >= 53.2750717;
+CREATE TABLE overture_buildings AS
+SELECT *
+FROM read_parquet(
+    's3://overturemaps-us-west-2/release/2026-04-15.0/theme=buildings/type=building/*.parquet',
+    hive_partitioning=1
+)
+WHERE bbox.xmin <= 87.1215765
+  AND bbox.xmax >= 83.8037054
+  AND bbox.ymin <= 54.9050437
+  AND bbox.ymax >= 53.2750717;
 
 ALTER TABLE overture_buildings
 ADD COLUMN IF NOT EXISTS source_type VARCHAR;
