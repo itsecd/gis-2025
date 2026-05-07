@@ -1,0 +1,52 @@
+{
+  "version": 8,
+  "sources": {
+    "overture": {
+      "type": "geojson",
+      "data": "/overture.geojson"
+    }
+  },
+  "layers": [
+    {
+      "id": "overture-polygons",
+      "source": "overture",
+      "type": "fill",
+      "filter": ["==", ["geometry-type"], "Polygon"],
+      "paint": {
+        "fill-color": [
+          "match",
+          ["get", "source_type"],
+          "my",
+          "#2E7D32",
+          "osm",
+          "#1E88E5",
+          "ml",
+          "#F57C00",
+          "#9E9E9E"
+        ],
+        "fill-opacity": 0.6,
+        "fill-outline-color": "#263238"
+      }
+    },
+    {
+      "id": "overture-lines",
+      "source": "overture",
+      "type": "line",
+      "filter": ["==", ["geometry-type"], "LineString"],
+      "paint": {
+        "line-color": [
+          "match",
+          ["get", "source_type"],
+          "my",
+          "#2E7D32",
+          "osm",
+          "#1E88E5",
+          "ml",
+          "#F57C00",
+          "#9E9E9E"
+        ],
+        "line-width": 3
+      }
+    }
+  ]
+}

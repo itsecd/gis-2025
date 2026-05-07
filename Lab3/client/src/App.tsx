@@ -3,64 +3,28 @@ import { useEffect, useRef } from 'react'
 import GeoJSON from 'ol/format/GeoJSON'
 import { Map, View } from 'ol'
 import TileLayer from 'ol/layer/Tile'
+import ImageLayer from 'ol/layer/Image'
 import VectorLayer from 'ol/layer/Vector'
 import { OSM, Vector as VectorSource } from 'ol/source'
 import { applyStyle } from 'ol-mapbox-style'
+import MAPBOX_CHOROPLETH_STYLE from './assets/style_conf.json'
+import ImageWMS from 'ol/source/ImageWMS'
 
 const MAP_CENTER: [number, number] = [5625071.318498041, 7028775.190074967]
 const MAP_ZOOM = 16
 
-const MAPBOX_CHOROPLETH_STYLE = {
-  version: 8,
-  sources: {
-    overture: {
-      type: 'geojson',
-      data: '/overture.geojson',
-    },
-  },
-  layers: [
-    {
-      id: 'overture-polygons',
-      source: 'overture',
-      type: 'fill',
-      filter: ['==', ['geometry-type'], 'Polygon'],
-      paint: {
-        'fill-color': [
-          'match',
-          ['get', 'source_type'],
-          'my',
-          '#2E7D32',
-          'osm',
-          '#1E88E5',
-          'ml',
-          '#F57C00',
-          '#9E9E9E',
-        ],
-        'fill-opacity': 0.6,
-        'fill-outline-color': '#263238',
+function createWmsLayer(layerName: string) {
+  return new ImageLayer({
+    source: new ImageWMS({
+      url: 'http://localhost:8080/geoserver/gis/wms',
+      params: {
+        LAYERS: layerName,
+        TILED: true,
       },
-    },
-    {
-      id: 'overture-lines',
-      source: 'overture',
-      type: 'line',
-      filter: ['==', ['geometry-type'], 'LineString'],
-      paint: {
-        'line-color': [
-          'match',
-          ['get', 'source_type'],
-          'my',
-          '#2E7D32',
-          'osm',
-          '#1E88E5',
-          'ml',
-          '#F57C00',
-          '#9E9E9E',
-        ],
-        'line-width': 3,
-      },
-    },
-  ],
+      ratio: 1,
+      serverType: 'geoserver',
+    }),
+  })
 }
 
 function App() {
@@ -88,6 +52,8 @@ function App() {
       target: mapContainerRef.current,
       layers: [
         new TileLayer({ source: new OSM() }),
+        createWmsLayer('gis:buildings'),
+        createWmsLayer('gis:roads'),
         overtureLayer,
       ],
       view: new View({
