@@ -1,0 +1,169 @@
+CONFIG 2026-05-07 13:38:51,399 [main][Log4J2Logger.java:215] : Logging policy: Log4J2
+CONFIG 2026-05-07 13:38:51,563 [main][Log4J2Logger.java:189] : Factory implementations for category GridCoverageFactory:
+  org.geotools.coverage.grid.GridCoverageFactory
+CONFIG 2026-05-07 13:38:51,844 [main][Log4J2Logger.java:189] : Factory implementations for category FilterFactory:
+  org.geotools.filter.FilterFactoryImpl
+CONFIG 2026-05-07 13:38:51,859 [main][Log4J2Logger.java:189] : Factory implementations for category StyleFactory:
+  org.geotools.styling.StyleFactoryImpl
+CONFIG 2026-05-07 13:38:51,903 [main][Log4J2Logger.java:189] : Factory implementations for category FeatureFactory:
+  org.geotools.feature.LenientFeatureFactoryImpl
+  org.geotools.feature.ValidatingFeatureFactoryImpl
+DEBUG 2026-05-07 13:38:52,220 [main][Log4J2Logger.java:220] : Extension lookup 'XStreamPersisterInitializer', prior to bean geoserverExtensions initialisation.
+DEBUG 2026-05-07 13:38:52,222 [main][Log4J2Logger.java:220] : Extension lookup 'ExtensionFilter', prior to bean geoserverExtensions initialisation.
+DEBUG 2026-05-07 13:38:52,224 [main][Log4J2Logger.java:220] : Extension lookup 'ExtensionProvider', but provided ApplicationContext is unset.
+DEBUG 2026-05-07 13:38:52,225 [main][Log4J2Logger.java:220] : Extension lookup 'ExtensionFilter', but provided ApplicationContext is unset.
+DEBUG 2026-05-07 13:38:52,260 [main][Log4J2Logger.java:220] : CONFIGURING GEOSERVER LOGGING -------------------------
+07 May 13:38:52 CONFIG [geoserver.logging] - Log4j 2 configuration set to DEFAULT_LOGGING.xml
+07 May 13:38:54 WARN   [geoserver.monitor] - monitoring storage memory not found, falling back to 'memory'
+07 May 13:38:55 CONFIG [org.geoserver] - GeoServer configuration lock is enabled
+07 May 13:38:55 CONFIG [org.geoserver] - Loading catalog /opt/geoserver/data_dir
+07 May 13:38:55 WARN   [org.geoserver] - No 'workspaces' directory found, unable to load any stores.
+07 May 13:38:55 CONFIG [org.geoserver] - Read catalog in 9.880 ms
+07 May 13:38:56 CONFIG [org.geoserver] - Loaded service 'WMSInfoImpl-4e78e666:19e02a9ae81:-7ffb', enabled
+07 May 13:38:56 CONFIG [org.geoserver] - Loaded service 'WCSInfoImpl-4e78e666:19e02a9ae81:-7ffa', enabled
+07 May 13:38:56 CONFIG [org.geoserver] - Loaded service 'WPSInfoImpl-4e78e666:19e02a9ae81:-7ff9', enabled
+07 May 13:38:56 CONFIG [org.geoserver] - Loaded service 'WFSInfoImpl-4e78e666:19e02a9ae81:-7ff8', enabled
+07 May 13:38:56 CONFIG [org.geoserver] - Loaded service 'WMTSInfoImpl-4e78e666:19e02a9ae81:-7ff7', enabled
+07 May 13:38:56 CONFIG [org.geoserver] - Loaded service 'csw', enabled
+07 May 13:38:56 CONFIG [gwc.config] - Will look for 'geowebcache.xml' in directory '/opt/geoserver/data_dir/gwc'.
+07 May 13:38:56 CONFIG [gwc.config] - Create configuration file '/opt/geoserver/data_dir/gwc/geowebcache.xml' from template jar:file:/usr/local/tomcat/webapps/geoserver/WEB-INF/lib/gwc-core-1.24.2.jar!/geowebcache_empty.xml
+07 May 13:38:56 WARN   [support.XmlWebApplicationContext] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'wms' defined in URL [jar:file:/usr/local/tomcat/webapps/geoserver/WEB-INF/lib/gs-wms-2.24.2.jar!/applicationContext.xml]: Cannot resolve reference to bean 'geoServer' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'geoServer' defined in URL [jar:file:/usr/local/tomcat/webapps/geoserver/WEB-INF/lib/gs-main-2.24.2.jar!/applicationContext.xml]: Initialization of bean failed; nested exception is java.lang.RuntimeException: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'gwcInitializer' defined in URL [jar:file:/usr/local/tomcat/webapps/geoserver/WEB-INF/lib/gs-gwc-2.24.2.jar!/geowebcache-geoserver-context.xml]: Cannot resolve reference to bean 'GeoSeverTileLayerCatalog' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'GeoSeverTileLayerCatalog' defined in URL [jar:file:/usr/local/tomcat/webapps/geoserver/WEB-INF/lib/gs-gwc-2.24.2.jar!/geowebcache-geoserver-context.xml]: Cannot resolve reference to bean 'gwcXmlConfig' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'gwcXmlConfig' defined in URL [jar:file:/usr/local/tomcat/webapps/geoserver/WEB-INF/lib/gs-gwc-2.24.2.jar!/geowebcache-core-context.xml]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: java.io.IOException: Permission denied
+07 May 13:38:56 ERROR  [context.ContextLoader] - Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'wms' defined in URL [jar:file:/usr/local/tomcat/webapps/geoserver/WEB-INF/lib/gs-wms-2.24.2.jar!/applicationContext.xml]: Cannot resolve reference to bean 'geoServer' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'geoServer' defined in URL [jar:file:/usr/local/tomcat/webapps/geoserver/WEB-INF/lib/gs-main-2.24.2.jar!/applicationContext.xml]: Initialization of bean failed; nested exception is java.lang.RuntimeException: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'gwcInitializer' defined in URL [jar:file:/usr/local/tomcat/webapps/geoserver/WEB-INF/lib/gs-gwc-2.24.2.jar!/geowebcache-geoserver-context.xml]: Cannot resolve reference to bean 'GeoSeverTileLayerCatalog' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'GeoSeverTileLayerCatalog' defined in URL [jar:file:/usr/local/tomcat/webapps/geoserver/WEB-INF/lib/gs-gwc-2.24.2.jar!/geowebcache-geoserver-context.xml]: Cannot resolve reference to bean 'gwcXmlConfig' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'gwcXmlConfig' defined in URL [jar:file:/usr/local/tomcat/webapps/geoserver/WEB-INF/lib/gs-gwc-2.24.2.jar!/geowebcache-core-context.xml]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: java.io.IOException: Permission denied
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:342)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:113)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:707)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:198)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:920)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:399)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:278)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:103)
+	at org.geoserver.platform.GeoServerContextLoaderListener.contextInitialized(GeoServerContextLoaderListener.java:22)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4493)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4939)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:683)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:658)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:662)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1184)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1932)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:118)
+	at org.apache.catalina.startup.HostConfig.deployDirectories(HostConfig.java:1094)
+	at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:476)
+	at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1617)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:318)
+	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:123)
+	at org.apache.catalina.util.LifecycleBase.setStateInternal(LifecycleBase.java:423)
+	at org.apache.catalina.util.LifecycleBase.setState(LifecycleBase.java:366)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:898)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:795)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:871)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:249)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:428)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:917)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:772)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:347)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:478)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'geoServer' defined in URL [jar:file:/usr/local/tomcat/webapps/geoserver/WEB-INF/lib/gs-main-2.24.2.jar!/applicationContext.xml]: Initialization of bean failed; nested exception is java.lang.RuntimeException: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'gwcInitializer' defined in URL [jar:file:/usr/local/tomcat/webapps/geoserver/WEB-INF/lib/gs-gwc-2.24.2.jar!/geowebcache-geoserver-context.xml]: Cannot resolve reference to bean 'GeoSeverTileLayerCatalog' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'GeoSeverTileLayerCatalog' defined in URL [jar:file:/usr/local/tomcat/webapps/geoserver/WEB-INF/lib/gs-gwc-2.24.2.jar!/geowebcache-geoserver-context.xml]: Cannot resolve reference to bean 'gwcXmlConfig' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'gwcXmlConfig' defined in URL [jar:file:/usr/local/tomcat/webapps/geoserver/WEB-INF/lib/gs-gwc-2.24.2.jar!/geowebcache-core-context.xml]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: java.io.IOException: Permission denied
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:628)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:330)
+	... 59 more
+Caused by: java.lang.RuntimeException: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'gwcInitializer' defined in URL [jar:file:/usr/local/tomcat/webapps/geoserver/WEB-INF/lib/gs-gwc-2.24.2.jar!/geowebcache-geoserver-context.xml]: Cannot resolve reference to bean 'GeoSeverTileLayerCatalog' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'GeoSeverTileLayerCatalog' defined in URL [jar:file:/usr/local/tomcat/webapps/geoserver/WEB-INF/lib/gs-gwc-2.24.2.jar!/geowebcache-geoserver-context.xml]: Cannot resolve reference to bean 'gwcXmlConfig' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'gwcXmlConfig' defined in URL [jar:file:/usr/local/tomcat/webapps/geoserver/WEB-INF/lib/gs-gwc-2.24.2.jar!/geowebcache-core-context.xml]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: java.io.IOException: Permission denied
+	at org.geoserver.config.GeoServerLoader.postProcessBeforeInitializationGeoServer(GeoServerLoader.java:312)
+	at org.geoserver.config.GeoServerLoader.postProcessBeforeInitialization(GeoServerLoader.java:284)
+	at org.geoserver.config.GeoServerLoaderProxy.postProcessBeforeInitialization(GeoServerLoaderProxy.java:61)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:440)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1796)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	... 65 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'gwcInitializer' defined in URL [jar:file:/usr/local/tomcat/webapps/geoserver/WEB-INF/lib/gs-gwc-2.24.2.jar!/geowebcache-geoserver-context.xml]: Cannot resolve reference to bean 'GeoSeverTileLayerCatalog' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'GeoSeverTileLayerCatalog' defined in URL [jar:file:/usr/local/tomcat/webapps/geoserver/WEB-INF/lib/gs-gwc-2.24.2.jar!/geowebcache-geoserver-context.xml]: Cannot resolve reference to bean 'gwcXmlConfig' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'gwcXmlConfig' defined in URL [jar:file:/usr/local/tomcat/webapps/geoserver/WEB-INF/lib/gs-gwc-2.24.2.jar!/geowebcache-core-context.xml]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: java.io.IOException: Permission denied
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:342)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:113)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:707)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:198)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1156)
+	at org.geoserver.platform.GeoServerExtensions.getBean(GeoServerExtensions.java:260)
+	at org.geoserver.platform.GeoServerExtensions.extensions(GeoServerExtensions.java:150)
+	at org.geoserver.platform.GeoServerExtensions.extensions(GeoServerExtensions.java:292)
+	at org.geoserver.config.GeoServerLoader.loadInitializers(GeoServerLoader.java:349)
+	at org.geoserver.config.GeoServerLoader.postProcessBeforeInitializationGeoServer(GeoServerLoader.java:310)
+	... 70 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'GeoSeverTileLayerCatalog' defined in URL [jar:file:/usr/local/tomcat/webapps/geoserver/WEB-INF/lib/gs-gwc-2.24.2.jar!/geowebcache-geoserver-context.xml]: Cannot resolve reference to bean 'gwcXmlConfig' while setting constructor argument; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'gwcXmlConfig' defined in URL [jar:file:/usr/local/tomcat/webapps/geoserver/WEB-INF/lib/gs-gwc-2.24.2.jar!/geowebcache-core-context.xml]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: java.io.IOException: Permission denied
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:342)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:113)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:707)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:198)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:330)
+	... 87 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'gwcXmlConfig' defined in URL [jar:file:/usr/local/tomcat/webapps/geoserver/WEB-INF/lib/gs-gwc-2.24.2.jar!/geowebcache-core-context.xml]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: java.io.IOException: Permission denied
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:330)
+	... 99 more
+Caused by: java.lang.IllegalStateException: java.io.IOException: Permission denied
+	at org.geoserver.platform.resource.Files$ResourceAdaptor.file(Files.java:194)
+	at org.geoserver.platform.resource.Files$ResourceAdaptor.out(Files.java:114)
+	at org.geoserver.gwc.config.GeoserverXMLResourceProvider.findOrCreateConfFile(GeoserverXMLResourceProvider.java:167)
+	at org.geoserver.gwc.config.GeoserverXMLResourceProvider.hasInput(GeoserverXMLResourceProvider.java:219)
+	at org.geowebcache.config.XMLConfiguration.afterPropertiesSet(XMLConfiguration.java:840)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	... 106 more
+Caused by: java.io.IOException: Permission denied
+	at java.base/java.io.UnixFileSystem.createFileExclusively(Native Method)
+	at java.base/java.io.File.createNewFile(File.java:1035)
+	at org.geoserver.platform.resource.Files$ResourceAdaptor.file(Files.java:190)
+	... 112 more
+07 May 13:38:56 INFO   [geoserver.logging] - Beginning GeoServer cleanup sequence
