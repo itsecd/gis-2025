@@ -7,7 +7,8 @@ services:
       POSTGRES_USER: gisuser
       POSTGRES_PASSWORD: gispass
     volumes:
-      - ./init-db:/docker-entrypoint-initdb.d
+      - postgres_data:/var/lib/postgresql/data  # Именованный том для БД (СОХРАНЯЕТ ДАННЫЕ)
+      - ./init-db:/docker-entrypoint-initdb.d   # Папка со скриптами инициализации
     ports:
       - "5434:5432"
 
@@ -18,8 +19,12 @@ services:
       GEOSERVER_ADMIN_USER: admin
       GEOSERVER_ADMIN_PASSWORD: geoserver
     volumes:
-      - ./geoserver_data:/opt/geoserver/data_dir
+      - geoserver_data:/opt/geoserver/data_dir  # Именованный том для GeoServer
     ports:
       - "8080:8080"
     depends_on:
       - postgis
+
+volumes:
+  postgres_data:    # Том для данных PostgreSQL
+  geoserver_data:   # Том для данных GeoServer

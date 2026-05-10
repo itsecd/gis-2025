@@ -1,5 +1,5 @@
 <featureType>
-  <id>FeatureTypeInfoImpl-1fc21e0d:19d59da7158:-7ff1</id>
+  <id>FeatureTypeInfoImpl-14487ec:19e137c2ca2:-7ff6</id>
   <name>roads</name>
   <nativeName>roads</nativeName>
   <namespace>
@@ -10,12 +10,22 @@
     <string>features</string>
     <string>roads</string>
   </keywords>
-  <srs>EPSG:404000</srs>
+  <nativeCRS>GEOGCS[&quot;WGS 84&quot;, 
+  DATUM[&quot;World Geodetic System 1984&quot;, 
+    SPHEROID[&quot;WGS 84&quot;, 6378137.0, 298.257223563, AUTHORITY[&quot;EPSG&quot;,&quot;7030&quot;]], 
+    AUTHORITY[&quot;EPSG&quot;,&quot;6326&quot;]], 
+  PRIMEM[&quot;Greenwich&quot;, 0.0, AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]], 
+  UNIT[&quot;degree&quot;, 0.017453292519943295], 
+  AXIS[&quot;Geodetic longitude&quot;, EAST], 
+  AXIS[&quot;Geodetic latitude&quot;, NORTH], 
+  AUTHORITY[&quot;EPSG&quot;,&quot;4326&quot;]]</nativeCRS>
+  <srs>EPSG:4326</srs>
   <nativeBoundingBox>
     <minx>50.225746154785156</minx>
     <maxx>50.23387908935547</maxx>
     <miny>53.290321350097656</miny>
     <maxy>53.3030891418457</maxy>
+    <crs>EPSG:4326</crs>
   </nativeBoundingBox>
   <latLonBoundingBox>
     <minx>50.225746154785156</minx>
@@ -27,7 +37,7 @@
   <projectionPolicy>FORCE_DECLARED</projectionPolicy>
   <enabled>true</enabled>
   <store class="dataStore">
-    <id>DataStoreInfoImpl-1fc21e0d:19d59da7158:-7ff4</id>
+    <id>DataStoreInfoImpl-14487ec:19e137c2ca2:-7ff9</id>
   </store>
   <serviceConfiguration>false</serviceConfiguration>
   <simpleConversionEnabled>false</simpleConversionEnabled>

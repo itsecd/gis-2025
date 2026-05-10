@@ -1,8 +1,8 @@
 <GeoServerTileLayer>
-  <id>LayerInfoImpl-1fc21e0d:19d59da7158:-7ff0</id>
+  <id>LayerInfoImpl-14487ec:19e137c2ca2:-7ff7</id>
   <enabled>true</enabled>
   <inMemoryCached>true</inMemoryCached>
-  <name>gis:roads</name>
+  <name>gis:buildings</name>
   <mimeFormats>
     <string>image/png</string>
     <string>image/jpeg</string>

@@ -1,0 +1,61 @@
+.layer-control {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: white;
+    padding: 12px 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    min-width: 120px;
+}
+
+.layer-control h4 {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+}
+
+.layer-control label {
+    display: block;
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+.layer-control input {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.coords-info {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-family: monospace;
+    font-size: 12px;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.reset-view-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.reset-view-btn:hover {
+    background: #f0f0f0;
+}
