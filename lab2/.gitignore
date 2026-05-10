@@ -11,7 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
-/public/icons.svg
+client/public/icons.svg
 /geoserver_data/gwc/diskquota_page_store_hsql/diskquota.log
 /geoserver_data/gwc/geowebcache_2026-04-04T185626.bak
 /geoserver_data/logs/geoserver.log
