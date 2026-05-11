@@ -1,17 +1,18 @@
 {
-  "name": "gis-lab2-client",
+  "name": "gis-lab3-client",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host 0.0.0.0",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@vitejs/plugin-basic-ssl": "latest",
-    "vite": "latest",
-    "ol": "latest"
+    "ol": "^10.5.0",
+    "ol-mapbox-style": "^12.0.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "vite": "^6.3.3"
+  }
 }

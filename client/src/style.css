@@ -1,9 +1,81 @@
-html, body, main, #map {
+html,
+body,
+main,
+#map {
   width: 100%;
   height: 100%;
   margin: 0;
+  font-family: Arial, sans-serif;
 }
 
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+#map {
+  position: fixed;
+  inset: 0;
+}
+
+.panel {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 330px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.18);
+  z-index: 2;
+}
+
+.panel h1 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.panel p {
+  margin: 0 0 12px;
+  color: #475569;
+  line-height: 1.35;
+}
+
+.legend {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.legend label {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.swatch.my { background: #22c55e; }
+.swatch.osm { background: #3b82f6; }
+.swatch.ml { background: #f97316; }
+
+#stats {
+  padding-top: 10px;
+  border-top: 1px solid #e2e8f0;
+  line-height: 1.5;
+}
+
+.popup {
+  position: absolute;
+  display: none;
+  z-index: 3;
+  min-width: 220px;
+  padding: 10px 12px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.2);
+  pointer-events: none;
+  font-size: 13px;
+  line-height: 1.45;
 }

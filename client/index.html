@@ -3,11 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GIS Lab 2</title>
+    <title>ЛР3 — Overture Maps + DuckDB</title>
   </head>
   <body>
     <main>
       <div id="map"></div>
+      <section class="panel">
+        <h1>Лабораторная работа №3</h1>
+        <p>Тематическая карта зданий Overture Maps по полю <code>source_type</code>.</p>
+        <div class="legend">
+          <label><input class="source-toggle" type="checkbox" value="my" checked /> <span class="swatch my"></span> my — пересечение с моими зданиями</label>
+          <label><input class="source-toggle" type="checkbox" value="osm" checked /> <span class="swatch osm"></span> osm — источник OpenStreetMap</label>
+          <label><input class="source-toggle" type="checkbox" value="ml" checked /> <span class="swatch ml"></span> ml — ML/другие источники</label>
+        </div>
+        <div id="stats">Загрузка статистики...</div>
+      </section>
+      <div id="popup" class="popup"></div>
     </main>
     <script type="module" src="/src/main.js"></script>
   </body>
