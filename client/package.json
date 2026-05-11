@@ -1,0 +1,17 @@
+{
+  "name": "gis-lab2-client",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@vitejs/plugin-basic-ssl": "latest",
+    "vite": "latest",
+    "ol": "latest"
+  },
+  "devDependencies": {}
+}
