@@ -5,50 +5,77 @@ import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
 import ImageLayer from 'ol/layer/Image';
 import ImageWMS from 'ol/source/ImageWMS';
-import {fromLonLat} from "ol/proj.js";
+import VectorLayer from 'ol/layer/Vector';
+import VectorSource from 'ol/source/Vector';
+import GeoJSON from 'ol/format/GeoJSON';
+import { Style, Fill, Stroke } from 'ol/style';
 
-new Map({
+function overtureStyleFunction(feature) {
+  const colorMap = {
+    my:  '#00ff00',
+    osm: '#0000ff',
+    ml:  '#ffa500',
+    other: '#cccccc'
+  };
+
+  const sourceType = feature.get('source_type') || 'other';
+  const color = colorMap[sourceType] || colorMap.other;
+
+  return new Style({
+    fill: new Fill({ color: color + '80' }),
+    stroke: new Stroke({ color: color, width: 1 })
+  });
+}
+
+const overtureSource = new VectorSource({
+  url: '/overture.geojson',
+  format: new GeoJSON()
+});
+
+const overtureLayer = new VectorLayer({
+  source: overtureSource,
+  style: overtureStyleFunction
+});
+
+const buildingsWMS = new ImageLayer({
+  source: new ImageWMS({
+    url: 'http://localhost:8080/geoserver/gis/wms',
+    params: { LAYERS: 'gis:buildings', TILED: true },
+    ratio: 1,
+    serverType: 'geoserver'
+  })
+});
+
+const roadsWMS = new ImageLayer({
+  source: new ImageWMS({
+    url: 'http://localhost:8080/geoserver/gis/wms',
+    params: { LAYERS: 'gis:roads', TILED: true },
+    ratio: 1,
+    serverType: 'geoserver'
+  })
+});
+
+const poiWMS = new ImageLayer({
+  source: new ImageWMS({
+    url: 'http://localhost:8080/geoserver/gis/wms',
+    params: { LAYERS: 'gis:poi', TILED: true },
+    ratio: 1,
+    serverType: 'geoserver'
+  })
+});
+
+const map = new Map({
   target: 'map',
   layers: [
-    new TileLayer({
-      source: new OSM()
-    }),
-    new ImageLayer({
-      source: new ImageWMS({
-        url: 'http://localhost:8080/geoserver/gis/wms',
-        params: {
-          LAYERS: 'gis:buildings',
-          TILED: true
-        },
-        ratio: 1,
-        serverType: 'geoserver'
-      })
-    }),
-    new ImageLayer({
-      source: new ImageWMS({
-        url: 'http://localhost:8080/geoserver/gis/wms',
-        params: {
-          LAYERS: 'gis:roads',
-          TILED: true
-        },
-        ratio: 1,
-        serverType: 'geoserver'
-      })
-    }),
-    new ImageLayer({
-      source: new ImageWMS({
-        url: 'http://localhost:8080/geoserver/gis/wms',
-        params: {
-          LAYERS: 'gis:poi',
-          TILED: true
-        },
-        ratio: 1,
-        serverType: 'geoserver'
-      })
-    })
+    new TileLayer({ source: new OSM() }),
+    buildingsWMS,
+    roadsWMS,
+    poiWMS,
+    overtureLayer
   ],
   view: new View({
-    center: fromLonLat([49.839259, 53.472939]),
+    projection: 'EPSG:4326',
+    center: [49.839259, 53.472939],
     zoom: 19
   })
 });
