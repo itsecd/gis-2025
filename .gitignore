@@ -1,8 +1,0 @@
-geoserver_data/tmp/
-geoserver_data/temp/
-geoserver_data/logs/
-geoserver_data/monitoring/
-geoserver_data/tomcat_pass.txt
-geoserver_data/gwc/diskquota_page_store_hsql/diskquota.lck
-geoserver_data/gwc/diskquota_page_store_hsql/diskquota.log
-geoserver_data/gwc/geowebcache_2026-04-20T200357.bak

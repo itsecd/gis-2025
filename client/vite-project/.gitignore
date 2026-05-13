@@ -23,5 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 
-public/
+public/favicon.svg
+public/icons.svg
 src/assets/
+/overture.duckdb
