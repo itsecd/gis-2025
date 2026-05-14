@@ -2,13 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GIS Lab 2</title>
+    <title>Lab 3 Overture Maps</title>
   </head>
   <body>
-    <main>
-      <div id="map"></div>
-    </main>
+    <div id="map"></div>
+
+    <div id="legend">
+      <h3>source_type</h3>
+      <div><span class="box my"></span> my — digitized by me</div>
+      <div><span class="box osm"></span> osm — OpenStreetMap</div>
+      <div><span class="box ml"></span> ml — ML / automatic source</div>
+    </div>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

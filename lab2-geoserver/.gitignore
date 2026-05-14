@@ -29,3 +29,7 @@ dist-ssr
 # GeoServer runtime files
 lab2-geoserver/geoserver_data/**/*.{log,lck,bak}
 lab2-geoserver/geoserver_data/tomcat_pass.txt
+lab3.duckdb
+lab3.duckdb.wal
+client/src/main_lab2_backup.js
+client/node_modules/
