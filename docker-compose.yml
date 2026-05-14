@@ -23,3 +23,14 @@ services:
       - "8080:8080"
     depends_on:
       - postgis
+
+  geoserver-init:
+    image: curlimages/curl:8.10.1
+    container_name: geoserver-init
+    volumes:
+      - ./geoserver-init:/geoserver-init:ro
+    entrypoint: ["/bin/sh", "/geoserver-init/init.sh"]
+    depends_on:
+      - geoserver
+      - postgis
+    restart: "no"

@@ -1,0 +1,41 @@
+<featureType>
+  <id>FeatureTypeInfoImpl--49369c32:19e26cff27e:-7ff3</id>
+  <name>buildings</name>
+  <nativeName>buildings</nativeName>
+  <namespace>
+    <id>NamespaceInfoImpl--49369c32:19e26cff27e:-7ff5</id>
+  </namespace>
+  <title>buildings</title>
+  <keywords>
+    <string>features</string>
+    <string>buildings</string>
+  </keywords>
+  <srs>EPSG:4326</srs>
+  <nativeBoundingBox>
+    <minx>49.21158218383789</minx>
+    <maxx>49.21235275268555</maxx>
+    <miny>53.59855651855469</miny>
+    <maxy>53.5999870300293</maxy>
+    <crs>EPSG:4326</crs>
+  </nativeBoundingBox>
+  <latLonBoundingBox>
+    <minx>49.21158218383789</minx>
+    <maxx>49.21235275268555</maxx>
+    <miny>53.59855651855469</miny>
+    <maxy>53.5999870300293</maxy>
+    <crs>EPSG:4326</crs>
+  </latLonBoundingBox>
+  <projectionPolicy>FORCE_DECLARED</projectionPolicy>
+  <enabled>true</enabled>
+  <store class="dataStore">
+    <id>DataStoreInfoImpl--49369c32:19e26cff27e:-7ff4</id>
+  </store>
+  <serviceConfiguration>false</serviceConfiguration>
+  <maxFeatures>0</maxFeatures>
+  <numDecimals>0</numDecimals>
+  <padWithZeros>false</padWithZeros>
+  <forcedDecimal>false</forcedDecimal>
+  <overridingServiceSRS>false</overridingServiceSRS>
+  <skipNumberMatched>false</skipNumberMatched>
+  <circularArcPresent>false</circularArcPresent>
+</featureType>
