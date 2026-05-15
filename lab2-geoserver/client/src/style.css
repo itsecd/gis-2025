@@ -1,41 +1,74 @@
 html,
 body {
   margin: 0;
-  padding: 0;
   width: 100%;
   height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #map {
-  width: 100vw;
-  height: 100vh;
+  position: fixed;
+  inset: 0;
+}
+
+#legend,
+#layer-control {
+  position: absolute;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.96);
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 #legend {
-  position: absolute;
-  right: 20px;
+  left: 20px;
   bottom: 20px;
-  background: white;
-  padding: 12px 14px;
-  border-radius: 8px;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  z-index: 1000;
+  min-width: 230px;
 }
 
-#legend h3 {
-  margin: 0 0 8px 0;
+#layer-control {
+  right: 20px;
+  top: 20px;
+  min-width: 240px;
+}
+
+#legend h3,
+#layer-control h3 {
+  margin: 0 0 8px;
   font-size: 15px;
 }
 
+#legend div,
+.layer-control-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+  white-space: nowrap;
+}
+
+#legend div:last-child,
+.layer-control-item:last-child {
+  margin-bottom: 0;
+}
+
+.layer-control-item {
+  cursor: pointer;
+  user-select: none;
+}
+
+.layer-control-item input {
+  cursor: pointer;
+}
+
 .box {
-  display: inline-block;
   width: 14px;
   height: 14px;
-  margin-right: 6px;
-  vertical-align: middle;
   border: 1px solid #333;
+  flex-shrink: 0;
 }
 
 .box.my {
@@ -48,4 +81,26 @@ body {
 
 .box.ml {
   background: #f39c12;
+}
+
+.ol-control {
+  z-index: 900;
+}
+
+@media (max-width: 768px) {
+  #legend,
+  #layer-control {
+    left: 10px;
+    right: 10px;
+    min-width: unset;
+    font-size: 13px;
+  }
+
+  #layer-control {
+    top: 10px;
+  }
+
+  #legend {
+    bottom: 10px;
+  }
 }
