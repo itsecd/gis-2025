@@ -45,27 +45,6 @@ SELECT
 -- 3. Поиск партиций Overture Maps Buildings, потенциально пересекающих BBOX.
 -- Запрос читает только метаданные Parquet-файлов, сами данные на этом шаге не скачиваются.
 CREATE OR REPLACE TABLE overture_partitions AS
-WITH files AS (
-    SELECT file
-    FROM glob('s3://overturemaps-us-west-2/release/2026-04-15.0/theme=buildings/type=building/*.zstd.parquet')
-), stats AS (
-    SELECT
-        f.file,
-        SUM(CASE
-            WHEN m.path_in_schema = 'bbox, xmin'
-             AND TRY_CAST(m.stats_min_value AS DOUBLE) <= (SELECT maxx FROM analysis_bbox)
-             AND TRY_CAST(m.stats_max_value AS DOUBLE) >= (SELECT minx FROM analysis_bbox)
-            THEN 1 ELSE 0 END) AS hit_x,
-        SUM(CASE
-            WHEN m.path_in_schema = 'bbox, ymin'
-             AND TRY_CAST(m.stats_min_value AS DOUBLE) <= (SELECT maxy FROM analysis_bbox)
-             AND TRY_CAST(m.stats_max_value AS DOUBLE) >= (SELECT miny FROM analysis_bbox)
-            THEN 1 ELSE 0 END) AS hit_y
-    FROM files f,
-         parquet_metadata(f.file) m
-    WHERE m.path_in_schema IN ('bbox, xmin', 'bbox, ymin')
-    GROUP BY f.file
-
 WITH stats AS (
     SELECT
         file_name AS file,
@@ -74,18 +53,22 @@ WITH stats AS (
              AND TRY_CAST(stats_min_value AS DOUBLE) <= (SELECT maxx FROM analysis_bbox)
              AND TRY_CAST(stats_max_value AS DOUBLE) >= (SELECT minx FROM analysis_bbox)
             THEN 1 ELSE 0 END) AS hit_x,
+
         SUM(CASE
             WHEN path_in_schema = 'bbox, ymin'
              AND TRY_CAST(stats_min_value AS DOUBLE) <= (SELECT maxy FROM analysis_bbox)
              AND TRY_CAST(stats_max_value AS DOUBLE) >= (SELECT miny FROM analysis_bbox)
             THEN 1 ELSE 0 END) AS hit_y
+
     FROM parquet_metadata(
         's3://overturemaps-us-west-2/release/2026-04-15.0/theme=buildings/type=building/*.zstd.parquet'
     )
-    WHERE path_in_schema IN ('bbox, xmin', 'bbox, ymin')
-    GROUP BY file_name
 
+    WHERE path_in_schema IN ('bbox, xmin', 'bbox, ymin')
+
+    GROUP BY file_name
 )
+
 SELECT file
 FROM stats
 WHERE hit_x > 0 AND hit_y > 0;

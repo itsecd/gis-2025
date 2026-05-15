@@ -10,6 +10,7 @@ import VectorSource from 'ol/source/Vector';
 import GeoJSON from 'ol/format/GeoJSON';
 import { fromLonLat } from 'ol/proj';
 import { applyStyle } from 'ol-mapbox-style';
+import TileWMS from 'ol/source/TileWMS';
 
 const SOURCE_TYPES = ['my', 'osm', 'ml'];
 const visibleTypes = new Set(SOURCE_TYPES);
@@ -23,12 +24,25 @@ const overtureLayer = new VectorLayer({
   source: overtureSource
 });
 
+const geoserverLayer = new TileLayer({
+  source: new TileWMS({
+    url: 'http://localhost:8080/geoserver/gis/wms',
+    params: {
+      LAYERS: 'gis:buildings',
+      TILED: true
+    },
+    serverType: 'geoserver',
+    transition: 0
+  })
+});
+
 const map = new Map({
   target: 'map',
   layers: [
     new TileLayer({
       source: new OSM()
     }),
+    geoserverLayer,
     overtureLayer
   ],
   view: new View({
