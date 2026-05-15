@@ -1,0 +1,46 @@
+{
+  "version": 8,
+  "name": "My Map",
+  "sources": {
+    "osm": {
+      "type": "raster",
+      "tiles": ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
+      "tileSize": 256,
+      "attribution": "© OpenStreetMap contributors"
+    },
+    "overture": {
+      "type": "geojson",
+      "data": "/overture.geojson"
+    }
+  },
+  "layers": [
+    {
+      "id": "osm-layer",
+      "type": "raster",
+      "source": "osm"
+    },
+    {
+      "id": "overture-fill",
+      "type": "fill",
+      "source": "overture",
+      "paint": {
+        "fill-color": [
+          "match",
+          ["get", "source_type"],
+          "my",  "rgba(0, 255, 0, 0.5)",
+          "osm", "rgba(0, 0, 255, 0.5)",
+          "ml",  "rgba(255, 165, 0, 0.5)",
+          "rgba(204, 204, 204, 0.5)"
+        ],
+        "fill-outline-color": [
+          "match",
+          ["get", "source_type"],
+          "my",  "#00ff00",
+          "osm", "#0000ff",
+          "ml",  "#ffa500",
+          "#cccccc"
+        ]
+      }
+    }
+  ]
+}
