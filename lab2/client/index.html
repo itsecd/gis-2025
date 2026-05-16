@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GIS</title>
-  <link rel="stylesheet" href="/src/style.css">
   <style>
     * {
       margin: 0;
@@ -41,23 +40,6 @@
   <div class="info">
     GIS
   </div>
-
-  <div class="layer-control">
-    <h4>Слои</h4>
-    <label><input type="checkbox" id="toggle-buildings" checked> Здания (WMS)</label>
-    <label><input type="checkbox" id="toggle-roads" checked> Дороги (WMS)</label>
-    <label><input type="checkbox" id="toggle-overture" checked> Overture</label>
-    <hr>
-    <div class="legend">
-      <div><span class="sw my"></span> my</div>
-      <div><span class="sw osm"></span> osm</div>
-      <div><span class="sw ml"></span> ml</div>
-    </div>
-  </div>
-
-  <div class="coords-info">Координаты: нажмите на карту</div>
-  <button class="reset-view-btn">Сбросить вид</button>
-
   <script type="module" src="/src/main.js"></script>
 </body>
 </html>
