@@ -1,4 +1,3 @@
-# Logs
 logs
 *.log
 npm-debug.log*
@@ -12,11 +11,10 @@ dist
 dist-ssr
 *.local
 client/public/icons.svg
-/geoserver_data/gwc/diskquota_page_store_hsql/diskquota.log
+/geoserver_data/gwc/diskquota_page_store_hsql/*.lck
 /geoserver_data/gwc/geowebcache_2026-04-04T185626.bak
 /geoserver_data/logs/geoserver.log
 /geoserver_data/tomcat_pass.txt
-# Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
