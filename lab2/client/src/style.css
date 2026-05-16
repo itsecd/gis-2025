@@ -59,3 +59,24 @@
 .reset-view-btn:hover {
     background: #f0f0f0;
 }
+
+.legend {
+    margin-top: 6px;
+    font-size: 12px;
+}
+.legend > div {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 3px 0;
+}
+.legend .sw {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 1px solid #222;
+    border-radius: 2px;
+}
+.legend .sw.my  { background: rgba(46, 204, 113, 0.55); }
+.legend .sw.osm { background: rgba(52, 152, 219, 0.55); }
+.legend .sw.ml  { background: rgba(230, 126, 34, 0.55); }
