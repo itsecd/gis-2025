@@ -8,9 +8,7 @@ import VectorSource from 'ol/source/Vector';
 import GeoJSON from 'ol/format/GeoJSON';
 import { fromLonLat } from 'ol/proj';
 import { applyStyle } from 'ol-mapbox-style';
-
-const COLORS  = { my: '#10b981', osm: '#6366f1', ml: '#f59e0b' };
-const STROKES = { my: '#059669', osm: '#4338ca', ml: '#d97706' };
+import styleJson from './style.json';
 
 const visible = new Set(['my', 'osm', 'ml']);
 
@@ -21,19 +19,10 @@ const overtureSource = new VectorSource({
 const overtureLayer = new VectorLayer({ source: overtureSource });
 
 function applyVisible() {
-  const layers = ['my', 'osm', 'ml'].flatMap(t => visible.has(t) ? [
-    { id: `fill-${t}`, type: 'fill', source: 'overture',
-      filter: ['==', ['get', 'source_type'], t],
-      paint: { 'fill-color': COLORS[t], 'fill-opacity': 0.6 } },
-    { id: `line-${t}`, type: 'line', source: 'overture',
-      filter: ['==', ['get', 'source_type'], t],
-      paint: { 'line-color': STROKES[t], 'line-width': 1.2 } },
-  ] : []);
-  applyStyle(overtureLayer, {
-    version: 8,
-    sources: { overture: { type: 'geojson', data: '/overture.geojson' } },
-    layers,
-  }, 'overture');
+  const style = JSON.parse(JSON.stringify(styleJson));
+  const filter = ['any', ...[...visible].map(t => ['==', ['get', 'source_type'], t])];
+  style.layers = style.layers.map(layer => ({ ...layer, filter }));
+  applyStyle(overtureLayer, style, 'overture');
 }
 
 applyVisible();
