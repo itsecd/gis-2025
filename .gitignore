@@ -1,2 +1,5 @@
 node_modules/
 dist/
+*.bak
+geoserver_data/logs/geoserver.log
+geoserver_data/tomcat_pass.txt
