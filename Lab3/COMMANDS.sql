@@ -50,13 +50,20 @@ ALTER TABLE overture_buildings_polygons ADD COLUMN source_type TEXT;
 -- Обновляем таблицу, помечая как my здания, чья геометрия имеет пространственное 
 -- пересечение с геометрией нашего слоя
 
-UPDATE overture_buildings_polygons
-SET source_type = 'my'
-WHERE EXISTS (
-    SELECT 1
-    FROM geo_data gd
-    WHERE ST_Intersects(overture_buildings_polygons.geometry, gd.geom)
-);
+UPDATE overture_buildings_polygons obp
+SET source_type = CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM geo_data gd
+        WHERE gd.building IS NOT NULL
+          AND ST_GeometryType(gd.geom) IN ('POLYGON', 'MULTIPOLYGON')
+          AND ST_Intersects(
+              ST_SetCRS(obp.geometry, 'EPSG:4326'),
+              ST_SetCRS(gd.geom, 'EPSG:4326')
+          )
+    ) THEN 'my'
+    ELSE NULL
+END;
 
 -- Проверяем что все сработало
 
