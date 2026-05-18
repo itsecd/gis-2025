@@ -10,40 +10,17 @@ services:
       - ./init-db:/docker-entrypoint-initdb.d
     ports:
       - "5432:5432"
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U gisuser -d gis"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
 
   geoserver:
     image: kartoza/geoserver:2.24.2
     container_name: geoserver
+    user: "0"
     environment:
       GEOSERVER_ADMIN_USER: admin
       GEOSERVER_ADMIN_PASSWORD: geoserver
     volumes:
-      - geoserver_data:/opt/geoserver/data_dir
+      - ./geoserver_data:/opt/geoserver/data_dir
     ports:
       - "8080:8080"
     depends_on:
-      postgis:
-        condition: service_healthy
-    healthcheck:
-      test: ["CMD-SHELL", "curl -sf http://localhost:8080/geoserver/web/ || exit 1"]
-      interval: 15s
-      timeout: 10s
-      retries: 12
-      start_period: 120s
-
-  geoserver-init:
-    image: curlimages/curl:latest
-    depends_on:
-      geoserver:
-        condition: service_healthy
-    volumes:
-      - ./geoserver-init:/scripts
-    command: sh /scripts/init.sh
-
-volumes:
-  geoserver_data:
+      - postgis

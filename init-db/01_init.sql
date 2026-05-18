@@ -48,5 +48,10 @@ CREATE TABLE poi (
   geom    GEOMETRY(POINT, 4326)
 );
 
+INSERT INTO poi (name, amenity, geom) VALUES
+  ('Магазин',   'shop',     ST_SetSRID(ST_MakePoint(49.2195, 53.5971), 4326)),
+  ('Остановка', 'bus_stop', ST_SetSRID(ST_MakePoint(49.2210, 53.5965), 4326)),
+  ('Кафе',      'cafe',     ST_SetSRID(ST_MakePoint(49.2225, 53.5968), 4326));
+
 ALTER TABLE poi ADD CONSTRAINT pk_poi PRIMARY KEY (id);
 CREATE INDEX idx_poi_geom ON poi USING GIST (geom);
