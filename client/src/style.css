@@ -8,6 +8,7 @@ body {
 }
 
 main {
+  position: relative;
   width: 100%;
   height: 100%;
 }
@@ -15,4 +16,49 @@ main {
 #map {
   width: 100%;
   height: 100vh;
+}
+
+.legend {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 1;
+  min-width: 160px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  color: #111827;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.2);
+  font-size: 14px;
+}
+
+.legend h1 {
+  margin: 0 0 10px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.legend div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.swatch {
+  width: 14px;
+  height: 14px;
+  border: 1px solid rgba(17, 24, 39, 0.3);
+}
+
+.swatch-my {
+  background: #2ca25f;
+}
+
+.swatch-osm {
+  background: #2b8cbe;
+}
+
+.swatch-ml {
+  background: #f28e2b;
 }

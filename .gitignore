@@ -8,3 +8,4 @@ geoserver_data/logs/*.log
 geoserver_data/tomcat_pass.txt
 client/node_modules/
 client/dist/
+*.duckdb
