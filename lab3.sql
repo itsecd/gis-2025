@@ -8,14 +8,9 @@ SET VARIABLE overture_release = (
     FROM 'https://stac.overturemaps.org/catalog.json'
 );
 
-SET VARIABLE overture_partition_url = (
-    'https://overturemaps-us-west-2.s3.us-west-2.amazonaws.com/release/'
-    || getvariable('overture_release')
-    || '/theme=buildings/type=building/part-00444-4ebd20bb-df8b-51bf-bf04-9eca0f9b119c-c000.zstd.parquet'
-);
-
 DROP TABLE IF EXISTS my_buildings;
 DROP TABLE IF EXISTS my_bbox;
+DROP TABLE IF EXISTS stac_item_links;
 DROP TABLE IF EXISTS overture_partitions;
 DROP TABLE IF EXISTS overture_buildings_raw;
 DROP TABLE IF EXISTS overture_buildings;
@@ -46,15 +41,50 @@ SET VARIABLE bbox_ymin = (SELECT ymin FROM my_bbox);
 SET VARIABLE bbox_xmax = (SELECT xmax FROM my_bbox);
 SET VARIABLE bbox_ymax = (SELECT ymax FROM my_bbox);
 
+CREATE TABLE stac_item_links AS
+WITH raw_collection AS (
+    SELECT *
+    FROM read_json_auto(
+        'https://stac.overturemaps.org/'
+        || getvariable('overture_release')
+        || '/buildings/building/collection.json'
+    )
+)
+SELECT
+    'https://stac.overturemaps.org/'
+        || getvariable('overture_release')
+        || '/buildings/building/'
+        || regexp_replace(link.href, '^\./', '') AS item_url
+FROM (
+    SELECT unnest(links) AS link
+    FROM raw_collection
+)
+WHERE link.rel = 'item';
+
+SET VARIABLE stac_item_urls = (
+    SELECT list(item_url)
+    FROM stac_item_links
+);
+
 CREATE TABLE overture_partitions AS
 SELECT
     getvariable('overture_release') AS release,
-    '00444' AS partition_id,
-    getvariable('overture_partition_url') AS parquet_url,
-    45.30121612548828 AS xmin,
-    52.006771087646484 AS ymin,
-    53.59000015258789 AS xmax,
-    55.54130935668945 AS ymax;
+    id AS partition_id,
+    assets.aws.href AS parquet_url,
+    bbox[1] AS xmin,
+    bbox[2] AS ymin,
+    bbox[3] AS xmax,
+    bbox[4] AS ymax
+FROM read_json_auto(getvariable('stac_item_urls'))
+WHERE bbox[1] <= getvariable('bbox_xmax')
+  AND bbox[3] >= getvariable('bbox_xmin')
+  AND bbox[2] <= getvariable('bbox_ymax')
+  AND bbox[4] >= getvariable('bbox_ymin');
+
+SET VARIABLE overture_files = (
+    SELECT list(parquet_url)
+    FROM overture_partitions
+);
 
 CREATE TABLE overture_buildings_raw AS
 SELECT
@@ -66,7 +96,7 @@ SELECT
     o.class,
     ST_MakeValid(o.geometry)::GEOMETRY AS geometry
 FROM read_parquet(
-    getvariable('overture_partition_url')
+    getvariable('overture_files')
 ) AS o
 WHERE o.bbox.xmin <= getvariable('bbox_xmax')
   AND o.bbox.xmax >= getvariable('bbox_xmin')
