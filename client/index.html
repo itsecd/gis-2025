@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GIS Viewer</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { height: 100%; }
+      main { height: 100%; display: flex; flex-direction: column; }
+      #map { flex: 1; }
+      #controls {
+        padding: 8px 12px;
+        background: #1e1e2e;
+        color: #cdd6f4;
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        font-family: sans-serif;
+        font-size: 14px;
+      }
+      #controls label { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div id="map"></div>
+      <div id="controls">
+        <span>Слои:</span>
+        <label><input type="checkbox" id="chk-buildings" checked /> Здания</label>
+        <label><input type="checkbox" id="chk-roads" checked /> Дороги</label>
+        <label><input type="checkbox" id="chk-poi" checked /> POI</label>
+      </div>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

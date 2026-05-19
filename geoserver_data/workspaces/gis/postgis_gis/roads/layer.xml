@@ -1,0 +1,16 @@
+<layer>
+  <name>roads</name>
+  <id>LayerInfoImpl--410eae6:19e419c0f6d:-7fee</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--410eae6:19e419c0f6d:-7fff</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--410eae6:19e419c0f6d:-7fef</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+  <dateCreated>2026-05-19 19:16:06.696 UTC</dateCreated>
+</layer>
