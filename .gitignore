@@ -1,0 +1,7 @@
+# GeoServer lock files
+geoserver_data/gwc/diskquota_page_store_hsql/diskquota.lck
+# GeoServer runtime/generated files
+geoserver_data/gwc/diskquota_page_store_hsql/diskquota.log
+geoserver_data/gwc/*.bak
+geoserver_data/logs/geoserver.log
+geoserver_data/tomcat_pass.txt

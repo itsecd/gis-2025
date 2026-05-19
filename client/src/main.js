@@ -33,7 +33,6 @@ const map = new Map({
     createWmsLayer('poi'),
   ],
   view: new View({
-    // Замени координаты на центр своего участка: fromLonLat([долгота, широта])
     center: fromLonLat([49.2315, 53.5960]),
     zoom: 15,
   }),
