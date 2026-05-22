@@ -1,9 +1,9 @@
 <featureType>
-  <id>FeatureTypeInfoImpl--5db2194d:19e3607c4bb:-7ff9</id>
+  <id>FeatureTypeInfoImpl-58139c6:19e4f35b26f:-7ff3</id>
   <name>buildings</name>
   <nativeName>buildings</nativeName>
   <namespace>
-    <id>NamespaceInfoImpl--5db2194d:19e3607c4bb:-7ffb</id>
+    <id>NamespaceInfoImpl-58139c6:19e4f35b26f:-7ff5</id>
   </namespace>
   <title>buildings</title>
   <keywords>
@@ -37,7 +37,7 @@
   <projectionPolicy>FORCE_DECLARED</projectionPolicy>
   <enabled>true</enabled>
   <store class="dataStore">
-    <id>DataStoreInfoImpl--5db2194d:19e3607c4bb:-7ffa</id>
+    <id>DataStoreInfoImpl-58139c6:19e4f35b26f:-7ff4</id>
   </store>
   <serviceConfiguration>false</serviceConfiguration>
   <simpleConversionEnabled>false</simpleConversionEnabled>
