@@ -10,7 +10,9 @@ import { fromLonLat } from 'ol/proj';
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
 import GeoJSON from 'ol/format/GeoJSON';
-import { Style, Fill, Stroke } from 'ol/style';
+import { applyStyle } from 'ol-mapbox-style';
+
+import MAPBOX_STYLE from './style.json';
 
 const osmLayer = new TileLayer({
   source: new OSM(),
@@ -66,28 +68,19 @@ const poiLayer = new ImageLayer({
   zIndex: 3
 });
 
-const overtureLayer = new VectorLayer({
-  source: new VectorSource({
-    url: 'overture.geojson',
-    format: new GeoJSON()
-  }),
-  visible: true,
-  zIndex: 4,
-  style: function(feature) {
-    const sourceType = feature.get('source_type');
-    let color;
-    switch(sourceType) {
-      case 'my': color = '#2ecc71'; break;
-      case 'osm': color = '#3498db'; break;
-      case 'ml': color = '#e67e22'; break;
-      default: color = '#95a5a6'; break;
-    }
-    return new Style({
-      fill: new Fill({ color: color + '80' }),
-      stroke: new Stroke({ color: color, width: 1 })
-    });
-  }
+// ===================== OVERTURE LAYER (Mapbox Style) =====================
+const overtureSource = new VectorSource({
+  url: '/overture.geojson',
+  format: new GeoJSON()
 });
+
+const overtureLayer = new VectorLayer({
+  source: overtureSource,
+  visible: true,
+  zIndex: 4
+});
+
+applyStyle(overtureLayer, MAPBOX_STYLE, 'overture');
 
 const layers = {
   osm: osmLayer,
@@ -110,6 +103,86 @@ const map = new Map({
   })
 });
 
+// ===================== ПАНЕЛЬ СТАТИСТИКИ =====================
+const statsEl = document.getElementById('stats');
+
+if (statsEl) {
+  overtureSource.once('featuresloadend', () => {
+    const features = overtureSource.getFeatures();
+    const counts = { my: 0, osm: 0, ml: 0 };
+    features.forEach(f => {
+      const st = f.get('source_type');
+      if (st in counts) counts[st]++;
+    });
+    statsEl.innerHTML = `
+      <strong> Overture Buildings</strong><br>
+      Всего: ${features.length} | 
+      my: <span style="color:#22c55e">${counts.my}</span> | 
+      osm: <span style="color:#3b82f6">${counts.osm}</span> | 
+      ml: <span style="color:#f97316">${counts.ml}</span>
+    `;
+  });
+}
+
+// ===================== TOOLTIP ПРИ НАВЕДЕНИИ =====================
+const tooltip = document.getElementById('tooltip');
+
+const SRC_LABELS = { my: 'Пользовательский', osm: 'OpenStreetMap', ml: 'Машинное обучение' };
+const SRC_COLORS = { my: '#22c55e', osm: '#3b82f6', ml: '#f97316' };
+
+map.on('pointermove', (evt) => {
+  if (!tooltip) return;
+  
+  if (evt.dragging) {
+    tooltip.style.display = 'none';
+    return;
+  }
+
+  const feature = map.forEachFeatureAtPixel(evt.pixel, f => f, {
+    layerFilter: l => l === overtureLayer,
+    hitTolerance: 2
+  });
+
+  if (!feature) {
+    tooltip.style.display = 'none';
+    map.getViewport().style.cursor = '';
+    return;
+  }
+
+  map.getViewport().style.cursor = 'pointer';
+
+  const src = feature.get('source_type') || '—';
+  const name = feature.get('name') || '—';
+  const cls = feature.get('class') || '—';
+  const h = feature.get('height') || '—';
+  const fl = feature.get('num_floors') || '—';
+
+  tooltip.innerHTML = `
+    <strong style="color:${SRC_COLORS[src] || '#fff'}">${SRC_LABELS[src] || src}</strong><br>
+     Название: ${name}<br>
+     Класс: ${cls}<br>
+     Высота: ${h} м<br>
+     Этажей: ${fl}
+  `;
+
+  const [px, py] = evt.pixel;
+  tooltip.style.left = `${px + 14}px`;
+  tooltip.style.top = `${py + 14}px`;
+  tooltip.style.display = 'block';
+});
+
+// ===================== КЛИК ДЛЯ ОТЛАДКИ =====================
+map.on('click', (evt) => {
+  const feature = map.forEachFeatureAtPixel(evt.pixel, f => f, {
+    layerFilter: l => l === overtureLayer,
+    hitTolerance: 2
+  });
+  if (feature) {
+    console.log('Overture building id:', feature.get('id'));
+  }
+});
+
+// ===================== УПРАВЛЕНИЕ СЛОЯМИ =====================
 document.addEventListener('DOMContentLoaded', () => {
   const toggles = ['osm', 'roads', 'buildings', 'poi'];
   
