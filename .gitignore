@@ -2,5 +2,5 @@ client/node_modules/
 client/dist/
 *.log
 geoserver_data/gwc/diskquota_page_store_hsql/diskquota.lck
-geoserver_data/gwc/geowebcache_2026-05-19T190013.bak
+geoserver_data/gwc/*.bak
 geoserver_data/tomcat_pass.txt
