@@ -1,0 +1,8 @@
+tmp/
+temp/
+logs/
+monitoring/
+tomcat_pass.txt
+gwc/diskquota_page_store_hsql/diskquota.lck
+gwc/diskquota_page_store_hsql/diskquota.log
+gwc/geowebcache_2026-05-24T181710.bak
