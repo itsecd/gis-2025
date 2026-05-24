@@ -5,90 +5,74 @@ import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
 import ImageLayer from 'ol/layer/Image';
 import ImageWMS from 'ol/source/ImageWMS';
-import { fromLonLat, transform } from 'ol/proj';
-
+import VectorLayer from 'ol/layer/Vector';
+import VectorSource from 'ol/source/Vector';
+import GeoJSON from 'ol/format/GeoJSON';
+import { fromLonLat } from 'ol/proj';
+import { stylefunction } from 'ol-mapbox-style';
 
 const CENTER = [50.319, 53.4187];
 const ZOOM = 18;
 
-const osmLayer = new TileLayer({
-  source: new OSM(),
-  zIndex: 0
+const overtureSource = new VectorSource({
+  url: './overture.geojson',
+  format: new GeoJSON()
 });
 
-const createWmsLayer = (layerName, zIndex, visible = true) => {
-  return new ImageLayer({
-    source: new ImageWMS({
-      url: 'http://localhost:8080/geoserver/gis/wms',
-      params: { 
-        'LAYERS': `gis:${layerName}`, 
-        'TILED': true,
-        'FORMAT': 'image/png',
-        'TRANSPARENT': true
-      },
-      serverType: 'geoserver',
-      ratio: 1
-    }),
-    visible: visible,
-    zIndex: zIndex
-  });
-};
+const overtureLayer = new VectorLayer({
+  source: overtureSource,
+  zIndex: 5
+});
 
-const buildingsLayer = createWmsLayer('buildings', 1, true);
-const roadsLayer = createWmsLayer('roads', 2, true);
-const poiLayer = createWmsLayer('poi', 3, true);
+fetch('./style.json')
+  .then(r => r.json())
+  .then(style => {
+    stylefunction(overtureLayer, style, 'overture');
+    console.log('Стиль успешно применён');
+  })
+  .catch(err => console.error('Ошибка загрузки style.json:', err));
 
 const map = new Map({
   target: 'map',
-  layers: [osmLayer, buildingsLayer, roadsLayer, poiLayer],
+  layers: [
+    new TileLayer({ source: new OSM() }),
+
+    new ImageLayer({
+      source: new ImageWMS({
+        url: 'http://localhost:8080/geoserver/gis/wms',
+        params: { LAYERS: 'gis:buildings', TILED: true, TRANSPARENT: true },
+        serverType: 'geoserver'
+      })
+    }),
+
+    new ImageLayer({
+      source: new ImageWMS({
+        url: 'http://localhost:8080/geoserver/gis/wms',
+        params: { LAYERS: 'gis:roads', TILED: true, TRANSPARENT: true },
+        serverType: 'geoserver'
+      })
+    }),
+
+    new ImageLayer({
+      source: new ImageWMS({
+        url: 'http://localhost:8080/geoserver/gis/wms',
+        params: { LAYERS: 'gis:poi', TILED: true, TRANSPARENT: true },
+        serverType: 'geoserver'
+      })
+    }),
+
+    overtureLayer
+  ],
   view: new View({
     center: fromLonLat(CENTER),
     zoom: ZOOM
   })
 });
 
-const statusPanel = document.getElementById('statusPanel');
-const coordsPanel = document.getElementById('coordsPanel');
-
-map.on('pointermove', (event) => {
-  const coords3857 = map.getCoordinateFromPixel(event.pixel);
-  const coords4326 = transform(coords3857, 'EPSG:3857', 'EPSG:4326');
-  const lon = coords4326[0];
-  const lat = coords4326[1];
-  
-  if (isNaN(lon) || isNaN(lat)) {
-    coordsPanel.innerHTML = `Координаты: --`;
-  } else {
-    coordsPanel.innerHTML = `Координаты: ${lon.toFixed(6)}, ${lat.toFixed(6)}`;
+overtureSource.once('change', () => {
+  if (overtureSource.getState() === 'ready') {
+    map.getView().fit(overtureSource.getExtent(), { padding: [50, 50, 50, 50] });
   }
 });
 
-const checkGeoServerConnection = async () => {
-  try {
-    const response = await fetch('http://localhost:8080/geoserver/gis/wms?service=WMS&version=1.1.0&request=GetCapabilities');
-    if (response.ok) {
-      statusPanel.innerHTML = 'GeoServer подключен';
-      statusPanel.style.color = '#0f0';
-    } else {
-      statusPanel.innerHTML = 'GeoServer ответил с ошибкой';
-      statusPanel.style.color = '#ff0';
-    }
-  } catch (error) {
-    statusPanel.innerHTML = 'GeoServer недоступен. Запустите: docker compose up -d';
-    statusPanel.style.color = '#f00';
-  }
-};
-
-document.getElementById('buildings').addEventListener('change', e => {
-  buildingsLayer.setVisible(e.target.checked);
-});
-
-document.getElementById('roads').addEventListener('change', e => {
-  roadsLayer.setVisible(e.target.checked);
-});
-
-document.getElementById('poi').addEventListener('change', e => {
-  poiLayer.setVisible(e.target.checked);
-});
-
-checkGeoServerConnection();
+console.log('ЛР3 — карта с внешним style.json загружена');
