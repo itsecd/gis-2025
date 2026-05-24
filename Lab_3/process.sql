@@ -1,129 +1,114 @@
--- =====================================================
--- ЛАБОРАТОРНАЯ РАБОТА №3 - ИСПРАВЛЕННЫЙ СКРИПТ
--- =====================================================
-
 INSTALL spatial;
-LOAD spatial;
 INSTALL httpfs;
+LOAD spatial;
 LOAD httpfs;
 
--- ===================== 1. ЗАГРУЗКА  ДАННЫХ =====================
+DROP TABLE IF EXISTS osm_data;
+CREATE TABLE osm_data AS
+SELECT *
+FROM ST_Read('map.geojson')
+WHERE building IS NOT NULL
+  AND ST_GeometryType(geom) IN ('POLYGON', 'MULTIPOLYGON');
 
-CREATE OR REPLACE TABLE my_buildings_raw AS
-SELECT * FROM ST_Read('./map.geojson');
+DROP TABLE IF EXISTS links;
+CREATE TABLE links AS
+WITH raw_data AS (
+    SELECT *
+    FROM 'https://stac.overturemaps.org/2026-04-15.0/buildings/building/collection.json'
+),
+raw_links AS (
+    SELECT unnest(links) AS link
+    FROM raw_data
+),
+ext_links AS (
+    SELECT row_number() OVER () AS id, link.href AS href
+    FROM raw_links
+    WHERE link.type = 'application/geo+json'
+),
+raw_bboxes AS (
+    SELECT unnest(extent.spatial.bbox) AS bbox
+    FROM raw_data
+),
+bboxes AS (
+    SELECT row_number() OVER () AS id,
+           bbox[1] AS xmin, bbox[2] AS ymin,
+           bbox[3] AS xmax, bbox[4] ymax
+    FROM raw_bboxes
+)
+SELECT ext_links.href, bboxes.xmin, bboxes.ymin, bboxes.xmax, bboxes.ymax
+FROM ext_links
+JOIN bboxes ON ext_links.id = bboxes.id;
 
-CREATE OR REPLACE TABLE my_buildings AS
-SELECT 
-    id AS osm_id,
-    geom,
-    ST_XMin(geom) AS xmin,
-    ST_YMin(geom) AS ymin,
-    ST_XMax(geom) AS xmax,
-    ST_YMax(geom) AS ymax
-FROM my_buildings_raw
-WHERE ST_GeometryType(geom) IN ('POLYGON', 'MULTIPOLYGON');
+CREATE OR REPLACE TEMP TABLE osm_bbox AS
+WITH agg AS (
+    SELECT ST_Extent_Agg(geom) AS g FROM osm_data
+)
+SELECT ST_Xmin(g) - 0.005 AS xmin, ST_Ymin(g) - 0.005 AS ymin,
+       ST_Xmax(g) + 0.005 AS xmax, ST_Ymax(g) + 0.005 AS ymax
+FROM agg;
 
--- ===================== 2. BBOX =====================
+CREATE OR REPLACE TEMP TABLE matched_links AS
+SELECT DISTINCT
+    'https://stac.overturemaps.org/2026-04-15.0/buildings/building/' || links.href AS item_url
+FROM links, osm_bbox
+WHERE NOT (links.xmax < osm_bbox.xmin
+        OR links.xmin > osm_bbox.xmax
+        OR links.ymax < osm_bbox.ymin
+        OR links.ymin > osm_bbox.ymax);
 
-CREATE OR REPLACE TABLE my_bbox AS
-SELECT 
-    MIN(xmin) - 0.01 AS min_x,
-    MIN(ymin) - 0.01 AS min_y,
-    MAX(xmax) + 0.01 AS max_x,
-    MAX(ymax) + 0.01 AS max_y
-FROM my_buildings;
+SET VARIABLE item_urls = (SELECT list(item_url) FROM matched_links);
 
--- ===================== 3. ПОДКЛЮЧЕНИЕ OVERTURE MAPS =====================
+CREATE OR REPLACE TEMP TABLE s3_files AS
+SELECT DISTINCT j.assets.aws.alternate.s3.href AS s3_href
+FROM read_json(getvariable('item_urls')) AS j;
 
-SET VARIABLE stac_url = 'https://stac.overturemaps.org/2026-04-15.0/buildings/building/collection.json';
+SET VARIABLE s3_hrefs = (SELECT list(s3_href) FROM s3_files);
 
--- Шаг 1: Получаем ссылки из collection.json
-CREATE OR REPLACE TABLE overture_links_raw AS
-SELECT unnest(links) AS link
-FROM read_json(getvariable('stac_url'));
-
--- Шаг 2: Загружаем метаданные каждой партиции (разбито на 2 запроса, чтобы избежать ошибки)
-CREATE OR REPLACE TABLE overture_items AS
-SELECT 
-    link.href,
-    unnest(extent.spatial.bbox) AS bbox
-FROM overture_links_raw l, read_json(l.link.href);
-
--- Шаг 3: Формируем bbox для каждой партиции
-CREATE OR REPLACE TABLE overture_bboxes AS
-SELECT 
-    href,
-    bbox[1] AS xmin,
-    bbox[2] AS ymin,
-    bbox[3] AS xmax,
-    bbox[4] AS ymax
-FROM overture_items;
-
--- Шаг 4: Фильтруем партиции по BBOX
-CREATE OR REPLACE TABLE overture_links AS
-SELECT 
-    href,
-    xmin, ymin, xmax, ymax
-FROM overture_bboxes
-WHERE xmin <= (SELECT max_x FROM my_bbox)
-  AND xmax >= (SELECT min_x FROM my_bbox)
-  AND ymin <= (SELECT max_y FROM my_bbox)
-  AND ymax >= (SELECT min_y FROM my_bbox);
-
--- ===================== 4. ЗАГРУЗКА ДАННЫХ OVERTURE =====================
-
--- Загружаем данные из найденных партиций (берем первую)
-CREATE OR REPLACE TABLE overture_raw AS
-SELECT 
-    geometry,
-    sources,
-    ST_XMin(geometry) AS xmin,
-    ST_YMin(geometry) AS ymin,
-    ST_XMax(geometry) AS xmax,
-    ST_YMax(geometry) AS ymax
-FROM read_parquet((SELECT href FROM overture_links LIMIT 1));
-
--- ===================== 5. ФИЛЬТРАЦИЯ ПО BBOX =====================
-
-CREATE OR REPLACE TABLE overture_filtered AS
-SELECT 
-    geometry,
-    sources
-FROM overture_raw, my_bbox
-WHERE xmin <= my_bbox.max_x
-  AND xmax >= my_bbox.min_x
-  AND ymin <= my_bbox.max_y
-  AND ymax >= my_bbox.min_y;
-
--- ===================== 6. КЛАССИФИКАЦИЯ ИСТОЧНИКОВ =====================
-
-CREATE OR REPLACE TABLE overture_classified AS
-SELECT 
-    o.geometry,
-    o.sources,
-    CASE 
-        WHEN m.geom IS NOT NULL THEN 'my'
-        WHEN (SELECT bool_or(s.dataset ILIKE '%OpenStreetMap%') 
-              FROM unnest(o.sources) AS t(s)) THEN 'osm'
+DROP TABLE IF EXISTS overture_buildings;
+CREATE TABLE overture_buildings AS
+WITH bbox_poly AS (
+    SELECT ST_MakeEnvelope(xmin, ymin, xmax, ymax) AS env
+    FROM osm_bbox
+),
+raw AS (
+    SELECT data.*
+    FROM read_parquet(getvariable('s3_hrefs'), filename = true) AS data, bbox_poly
+    WHERE try(ST_IsValid(data.geometry)) = true
+      AND ST_Intersects(data.geometry, bbox_poly.env)
+)
+SELECT DISTINCT ON (raw.id)
+    raw.id,
+    raw.geometry,
+    raw.sources,
+    CASE
+        WHEN EXISTS (
+            SELECT 1
+            FROM osm_data o
+            WHERE try(ST_Intersects(o.geom, ST_SetCRS(raw.geometry, 'EPSG:4326'))) = true
+        ) THEN 'my'
+        WHEN list_contains(
+            list_transform(raw.sources, s -> s.dataset),
+            'OpenStreetMap'
+        ) THEN 'osm'
         ELSE 'ml'
     END AS source_type
-FROM overture_filtered o
-LEFT JOIN my_buildings m
-    ON ST_Intersects(o.geometry, m.geom);
-
--- ===================== 7. ЭКСПОРТ В GEOJSON =====================
+FROM raw;
 
 COPY (
-    SELECT 
-        ST_AsGeoJSON(geometry)::JSON AS geometry,
-        source_type
-    FROM overture_classified
-    WHERE source_type IS NOT NULL
-) TO 'overture.geojson' 
-WITH (FORMAT GDAL, DRIVER 'GeoJSON');
-
--- ===================== 8. ПРОВЕРКА РЕЗУЛЬТАТА =====================
-
-SELECT source_type, COUNT(*) 
-FROM overture_classified 
-GROUP BY source_type;
+    SELECT json_object(
+        'type', 'FeatureCollection',
+        'features', json_group_array(
+            json_object(
+                'type', 'Feature',
+                'geometry', ST_AsGeoJSON(ST_SetCRS(geometry, 'EPSG:4326'))::JSON,
+                'properties', json_object(
+                    'id', id,
+                    'source_type', source_type
+                )
+            )
+        )
+    )
+    FROM overture_buildings
+)
+TO './overture.geojson'
+WITH (FORMAT CSV, HEADER false, QUOTE '');
