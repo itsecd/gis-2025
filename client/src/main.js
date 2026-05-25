@@ -10,6 +10,7 @@ import ImageWMS from 'ol/source/ImageWMS';
 import GeoJSON from 'ol/format/GeoJSON';
 import { fromLonLat } from 'ol/proj';
 import { stylefunction } from 'ol-mapbox-style';
+import mapboxStyle from './style.json';
 
 const WMS_URL = 'http://localhost:8080/geoserver/gis/wms';
 
@@ -35,41 +36,6 @@ const overtureSource = new VectorSource({
 });
 
 const overtureLayer = new VectorLayer({ source: overtureSource });
-
-// Mapbox Style для хороплета
-const mapboxStyle = {
-  version: 8,
-  sources: {
-    overture: { type: 'geojson', data: './overture.geojson' },
-  },
-  layers: [
-    {
-      id: 'overture-fill',
-      type: 'fill',
-      source: 'overture',
-      paint: {
-        'fill-color': [
-          'match', ['get', 'source_type'],
-          'my',  '#22c55e',   // зелёный — пользовательские данные
-          'osm', '#3b82f6',   // синий — OpenStreetMap
-          'ml',  '#f97316',   // оранжевый — ML-детектирование
-          '#9ca3af',
-        ],
-        'fill-opacity': 0.65,
-      },
-    },
-    {
-      id: 'overture-outline',
-      type: 'line',
-      source: 'overture',
-      paint: {
-        'line-color': '#ffffff',
-        'line-width': 0.6,
-        'line-opacity': 0.8,
-      },
-    },
-  ],
-};
 
 // Применяем Mapbox Style к VectorLayer
 stylefunction(overtureLayer, mapboxStyle, 'overture');

@@ -9,7 +9,7 @@ services:
     volumes:
       - ./init-db:/docker-entrypoint-initdb.d
     ports:
-      - "5432:5432"sdadasf"sad
+      - "5432:5432"
 
   geoserver:
     image: kartoza/geoserver:2.24.2
