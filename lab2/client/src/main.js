@@ -11,6 +11,7 @@ import VectorSource from 'ol/source/Vector';
 import GeoJSON from 'ol/format/GeoJSON';
 import { applyStyle } from 'ol-mapbox-style';
 import { fromLonLat } from 'ol/proj';
+import mbs from './map-style.json';
 
 const osmLayer = new TileLayer({
   source: new OSM(),
@@ -62,35 +63,6 @@ const overtureSource = new VectorSource({
 const overtureLayer = new VectorLayer({
   source: overtureSource,
 });
-
-// Стилевой объект Mapbox Style для хороплета
-const mbs = {
-  version: 8,
-  sources: {
-    'overture': {
-      type: 'geojson',
-      data: '/overture.geojson'
-    }
-  },
-  layers: [
-    {
-      id: 'overture-layer',
-      type: 'fill',
-      source: 'overture',
-      paint: {
-        'fill-color': [
-          'match',
-          ['get', 'source_type'],
-          'my', 'rgba(0, 128, 0, 0.7)',
-          'osm', 'rgba(0, 0, 255, 0.7)',
-          'ml', 'rgba(255, 165, 0, 0.7)',
-          /* default */ '#000000'
-        ],
-        'fill-outline-color': '#000000'
-      }
-    }
-  ]
-};
 
 // Применяем Mapbox Style к слою
 applyStyle(overtureLayer, mbs, 'overture');

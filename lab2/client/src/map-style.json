@@ -1,0 +1,33 @@
+{
+    "version": 8,
+    "sources": {
+        "overture": {
+            "type": "geojson",
+            "data": "/overture.geojson"
+        }
+    },
+    "layers": [
+        {
+            "id": "overture-layer",
+            "type": "fill",
+            "source": "overture",
+            "paint": {
+                "fill-color": [
+                    "match",
+                    [
+                        "get",
+                        "source_type"
+                    ],
+                    "my",
+                    "rgba(0, 128, 0, 0.7)",
+                    "osm",
+                    "rgba(0, 0, 255, 0.7)",
+                    "ml",
+                    "rgba(255, 165, 0, 0.7)",
+                    "#000000"
+                ],
+                "fill-outline-color": "#000000"
+            }
+        }
+    ]
+}
