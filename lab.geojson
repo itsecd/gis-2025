@@ -8,9 +8,12 @@
         "version": "0",
         "building": "yes",
         "building:levels": "1",
-        "addr:street": "СТ Рассвет, ул. Солнечная",
+        "addr:street": "Солнечная улица",
         "addr:city": "сельское поселение Воскресенка",
-        "id": "way/-2"
+        "id": "way/-2",
+        "user": "alexandragorbuntsova",
+        "changeset": "183022012",
+        "addr:place": "СТ Рассвет"
       },
       "geometry": {
         "type": "Polygon",
@@ -48,8 +51,11 @@
         "building": "yes",
         "building:levels": "1",
         "addr:city": "сельское поселение Воскресенка",
-        "addr:street": "СТ Рассвет, ул. Солнечная",
-        "id": "way/-6"
+        "addr:street": "Солнечная улица",
+        "id": "way/-6",
+        "user": "alexandragorbuntsova",
+        "changeset": "183022012",
+        "addr:place": "СТ Рассвет"
       },
       "geometry": {
         "type": "Polygon",
@@ -86,9 +92,12 @@
         "version": "0",
         "building": "yes",
         "building:levels": "1",
-        "addr:street": "СТ Рассвет, ул. Солнечная",
+        "addr:street": "Солнечная улица",
         "addr:city": "сельское поселение Воскресенка",
-        "id": "way/-8"
+        "id": "way/-8",
+        "user": "alexandragorbuntsova",
+        "changeset": "183022012",
+        "addr:place": "СТ Рассвет"
       },
       "geometry": {
         "type": "Polygon",
@@ -126,8 +135,11 @@
         "building": "yes",
         "building:levels": "1",
         "addr:city": "сельское поселение Воскресенка",
-        "addr:street": "СТ Рассвет, ул. Солнечная",
-        "id": "way/-9"
+        "addr:street": "Солнечная улица",
+        "id": "way/-9",
+        "user": "alexandragorbuntsova",
+        "changeset": "183022012",
+        "addr:place": "СТ Рассвет"
       },
       "geometry": {
         "type": "Polygon",
@@ -164,9 +176,12 @@
         "version": "0",
         "building": "yes",
         "building:levels": "1",
-        "addr:street": "СТ Рассвет, ул. Солнечная",
+        "addr:street": "Солнечная улица",
         "addr:city": "сельское поселение Воскресенка",
-        "id": "way/-11"
+        "id": "way/-11",
+        "user": "alexandragorbuntsova",
+        "changeset": "183022012",
+        "addr:place": "СТ Рассвет"
       },
       "geometry": {
         "type": "Polygon",
@@ -205,7 +220,11 @@
         "building:levels": "1",
         "addr:city": "сельское поселение Воскресенка",
         "id": "way/-12",
-        "addr:street": "СТ Рассвет, ул. Солнечная"
+        "addr:street": "Солнечная улица",
+        "user": "alexandragorbuntsova",
+        "changeset": "183022012",
+        "addr:place": "СТ Рассвет",
+        "addr:housenumber": "110"
       },
       "geometry": {
         "type": "Polygon",
@@ -242,9 +261,12 @@
         "version": "0",
         "building": "yes",
         "building:levels": "1",
-        "addr:street": "СТ Рассвет, ул. Солнечная",
+        "addr:street": "Солнечная улица",
         "addr:city": "сельское поселение Воскресенка",
-        "id": "way/-13"
+        "id": "way/-13",
+        "user": "alexandragorbuntsova",
+        "changeset": "183022012",
+        "addr:place": "СТ Рассвет"
       },
       "geometry": {
         "type": "Polygon",
@@ -281,9 +303,13 @@
         "version": "0",
         "building": "yes",
         "building:levels": "1",
-        "addr:street": "СТ Рассвет, ул. Солнечная",
+        "addr:street": "Солнечная улица",
         "addr:city": "сельское поселение Воскресенка",
-        "id": "way/-14"
+        "id": "way/-14",
+        "user": "alexandragorbuntsova",
+        "changeset": "183022012",
+        "addr:place": "СТ Рассвет",
+        "addr:housenumber": "62"
       },
       "geometry": {
         "type": "Polygon",
@@ -320,9 +346,13 @@
         "version": "0",
         "building": "yes",
         "building:levels": "1",
-        "addr:street": "СТ Рассвет, ул. Солнечная",
+        "addr:street": "Солнечная улица",
         "addr:city": "сельское поселение Воскресенка",
-        "id": "way/-15"
+        "id": "way/-15",
+        "user": "alexandragorbuntsova",
+        "changeset": "183022012",
+        "addr:place": "СТ Рассвет",
+        "addr:housenumber": "66"
       },
       "geometry": {
         "type": "Polygon",
@@ -359,9 +389,12 @@
         "version": "0",
         "building": "yes",
         "building:levels": "1",
-        "addr:street": "СТ Рассвет, ул. Солнечная",
+        "addr:street": "Солнечная улица",
         "addr:city": "сельское поселение Воскресенка",
-        "id": "way/-17"
+        "id": "way/-17",
+        "user": "alexandragorbuntsova",
+        "changeset": "183022012",
+        "addr:place": "СТ Рассвет"
       },
       "geometry": {
         "type": "Polygon",
