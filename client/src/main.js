@@ -6,7 +6,26 @@ import ImageLayer from 'ol/layer/Image';
 import OSM from 'ol/source/OSM';
 import ImageWMS from 'ol/source/ImageWMS';
 import { fromLonLat } from 'ol/proj';
+import VectorLayer from 'ol/layer/Vector';
+import VectorSource from 'ol/source/Vector';
+import GeoJSON from 'ol/format/GeoJSON';
+import { stylefunction } from 'ol-mapbox-style';
 
+
+const overtureSource = new VectorSource({
+  url: '/overture.geojson',
+  format: new GeoJSON()
+});
+
+const overtureLayer = new VectorLayer({
+  source: overtureSource
+});
+
+fetch('/style.json')
+  .then((r) => r.json())
+  .then((style) => {
+    stylefunction(overtureLayer, style, 'overture');
+  });
 
 // Базовая подложка OpenStreetMap
 const osmLayer = new TileLayer({
@@ -63,7 +82,8 @@ const map = new Map({
     osmLayer,
     buildingsLayer,
     roadsLayer,
-    poiLayer
+    poiLayer,
+    overtureLayer
   ],
   view: new View({
 
