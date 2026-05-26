@@ -1,0 +1,22 @@
+<dataStore>
+  <id>DataStoreInfoImpl-43507a63:19e64be559c:-7ff3</id>
+  <name>postgis_store</name>
+  <type>PostGIS</type>
+  <enabled>true</enabled>
+  <workspace>
+    <id>WorkspaceInfoImpl-43507a63:19e64be559c:-7ff5</id>
+  </workspace>
+  <connectionParameters>
+    <entry key="schema">public</entry>
+    <entry key="database">gis</entry>
+    <entry key="port">5432</entry>
+    <entry key="passwd">crypt2:5IL/Iz7FpSNyyIuS8AHoiYZgCBMGafFF/yMQ2SJ0YQw=</entry>
+    <entry key="host">postgis</entry>
+    <entry key="dbtype">postgis</entry>
+    <entry key="namespace">http://gis</entry>
+    <entry key="user">gisuser</entry>
+  </connectionParameters>
+  <__default>false</__default>
+  <dateCreated>2026-05-26 15:16:07.598 UTC</dateCreated>
+  <disableOnConnFailure>false</disableOnConnFailure>
+</dataStore>
