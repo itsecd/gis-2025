@@ -3,20 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lab 2 - GeoServer WMS</title>
+    <title>Lab 3 - Overture choropleth</title>
   </head>
   <body>
     <main>
       <div id="app">
         <aside class="layer-panel">
-          <h1>ЛР2: публикация WMS</h1>
+          <h1>ЛР3: Overture Buildings</h1>
           <p class="area-name">Усть-Кинельский, СДТ Завода им. Фрунзе</p>
           <div class="layer-list" aria-label="Слои GeoServer">
-            <label><input id="buildings-toggle" type="checkbox" checked /> Здания</label>
+            <label><input id="overture-toggle" type="checkbox" checked /> Источники Overture</label>
+            <label><input id="buildings-toggle" type="checkbox" /> Здания WMS</label>
             <label><input id="roads-toggle" type="checkbox" /> Дороги</label>
             <label><input id="pois-toggle" type="checkbox" /> POI</label>
           </div>
-          <p class="connection">GeoServer WMS: <span>gis</span></p>
+          <dl class="legend">
+            <div><dt class="swatch my"></dt><dd>my</dd></div>
+            <div><dt class="swatch osm"></dt><dd>osm</dd></div>
+            <div><dt class="swatch ml"></dt><dd>ml</dd></div>
+          </dl>
+          <p class="connection">GeoJSON + Mapbox Style</p>
         </aside>
         <div id="map"></div>
       </div>

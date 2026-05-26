@@ -74,6 +74,43 @@ body {
   font-weight: 700;
 }
 
+.legend {
+  display: grid;
+  gap: 6px;
+  margin: 14px 0 0;
+  font-size: 13px;
+}
+
+.legend div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend dd {
+  margin: 0;
+}
+
+.swatch {
+  width: 14px;
+  height: 14px;
+  margin: 0;
+  border: 1px solid #ffffff;
+  border-radius: 3px;
+}
+
+.swatch.my {
+  background: #1a9850;
+}
+
+.swatch.osm {
+  background: #2b6cb0;
+}
+
+.swatch.ml {
+  background: #f59e0b;
+}
+
 @media (max-width: 640px) {
   .layer-panel {
     top: 8px;
