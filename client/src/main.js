@@ -3,10 +3,9 @@ import './style.css';
 import Map from 'ol/Map';
 import View from 'ol/View';
 import TileLayer from 'ol/layer/Tile';
-import ImageLayer from 'ol/layer/Image';
 import OSM from 'ol/source/OSM';
-import ImageWMS from 'ol/source/ImageWMS';
 import { fromLonLat } from 'ol/proj';
+import { apply } from 'ol-mapbox-style';
 
 const map = new Map({
   target: 'map',
@@ -21,16 +20,4 @@ const map = new Map({
   }),
 });
 
-const wmsLayer = new ImageLayer({
-  source: new ImageWMS({
-    url: 'http://localhost:8081/geoserver/gis/wms',
-    params: {
-      LAYERS: 'gis:buildings',
-      TILED: true,
-    },
-    ratio: 1,
-    serverType: 'geoserver',
-  }),
-});
-
-map.addLayer(wmsLayer);
+apply(map, '/overture-style.json');
