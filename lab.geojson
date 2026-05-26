@@ -13,7 +13,8 @@
         "id": "way/-2",
         "user": "alexandragorbuntsova",
         "changeset": "183022012",
-        "addr:place": "СТ Рассвет"
+        "addr:place": "СТ Рассвет",
+        "addr:housenumber": "97"
       },
       "geometry": {
         "type": "Polygon",
@@ -55,7 +56,8 @@
         "id": "way/-6",
         "user": "alexandragorbuntsova",
         "changeset": "183022012",
-        "addr:place": "СТ Рассвет"
+        "addr:place": "СТ Рассвет",
+        "addr:housenumber": "80"
       },
       "geometry": {
         "type": "Polygon",
@@ -97,7 +99,8 @@
         "id": "way/-8",
         "user": "alexandragorbuntsova",
         "changeset": "183022012",
-        "addr:place": "СТ Рассвет"
+        "addr:place": "СТ Рассвет",
+        "addr:housenumber": "96"
       },
       "geometry": {
         "type": "Polygon",
@@ -139,7 +142,8 @@
         "id": "way/-9",
         "user": "alexandragorbuntsova",
         "changeset": "183022012",
-        "addr:place": "СТ Рассвет"
+        "addr:place": "СТ Рассвет",
+        "addr:housenumber": "96"
       },
       "geometry": {
         "type": "Polygon",
@@ -181,7 +185,8 @@
         "id": "way/-11",
         "user": "alexandragorbuntsova",
         "changeset": "183022012",
-        "addr:place": "СТ Рассвет"
+        "addr:place": "СТ Рассвет",
+        "addr:housenumber": "80"
       },
       "geometry": {
         "type": "Polygon",
@@ -266,7 +271,8 @@
         "id": "way/-13",
         "user": "alexandragorbuntsova",
         "changeset": "183022012",
-        "addr:place": "СТ Рассвет"
+        "addr:place": "СТ Рассвет",
+        "addr:housenumber": "96"
       },
       "geometry": {
         "type": "Polygon",
@@ -394,7 +400,8 @@
         "id": "way/-17",
         "user": "alexandragorbuntsova",
         "changeset": "183022012",
-        "addr:place": "СТ Рассвет"
+        "addr:place": "СТ Рассвет",
+        "addr:housenumber": "79"
       },
       "geometry": {
         "type": "Polygon",
