@@ -1,0 +1,83 @@
+html,
+body,
+main,
+#app,
+#map {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #172033;
+}
+
+#app {
+  position: relative;
+  overflow: hidden;
+}
+
+.layer-panel {
+  position: absolute;
+  z-index: 2;
+  top: 16px;
+  left: 16px;
+  width: min(320px, calc(100vw - 32px));
+  padding: 14px 16px;
+  background: rgba(250, 252, 255, 0.96);
+  border: 1px solid #c7d2e3;
+  border-radius: 8px;
+  box-shadow: 0 12px 28px rgba(23, 32, 51, 0.16);
+}
+
+.layer-panel h1 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.25;
+}
+
+.area-name {
+  margin: 5px 0 14px;
+  color: #526070;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.layer-list {
+  display: grid;
+  gap: 9px;
+  font-size: 14px;
+}
+
+.layer-list label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 24px;
+}
+
+.layer-list input {
+  accent-color: #1f6feb;
+}
+
+.connection {
+  margin: 14px 0 0;
+  padding-top: 10px;
+  border-top: 1px solid #d8e0ed;
+  color: #526070;
+  font-size: 12px;
+}
+
+.connection span {
+  color: #172033;
+  font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .layer-panel {
+    top: 8px;
+    left: 8px;
+    width: calc(100vw - 16px);
+  }
+}
