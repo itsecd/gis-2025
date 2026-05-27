@@ -8,7 +8,10 @@ SET source_type = CASE
   WHEN EXISTS (
     SELECT 1
     FROM user_buildings AS ub
-    WHERE ST_Intersects(ob.geometry, ub.geom)
+    WHERE ST_Intersects(
+      ST_SetCRS(ob.geometry, 'EPSG:4326'),
+      ST_SetCRS(ub.geom, 'EPSG:4326')
+    )
   ) THEN 'my'
   WHEN EXISTS (
     SELECT 1
