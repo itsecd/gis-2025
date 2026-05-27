@@ -10,78 +10,62 @@ import OSM from 'ol/source/OSM';
 import ImageLayer from 'ol/layer/Image';
 import ImageWMS from 'ol/source/ImageWMS';
 
-import VectorLayer from 'ol/layer/Vector';
-import VectorSource from 'ol/source/Vector';
-import GeoJSON from 'ol/format/GeoJSON';
-
-import {applyStyle} from 'ol-mapbox-style';
-import {useGeographic} from 'ol/proj';
-
-useGeographic(); 
-
-
-const baseLayer = new TileLayer({
-  source: new OSM()
-});
-
+import { fromLonLat } from 'ol/proj';
 
 const buildingsLayer = new ImageLayer({
   source: new ImageWMS({
     url: 'http://localhost:8080/geoserver/gis/wms',
+
     params: {
       LAYERS: 'gis:buildings'
     },
+
     ratio: 1,
     serverType: 'geoserver'
   })
 });
-
 
 const roadsLayer = new ImageLayer({
   source: new ImageWMS({
     url: 'http://localhost:8080/geoserver/gis/wms',
+
     params: {
       LAYERS: 'gis:roads'
     },
+
     ratio: 1,
     serverType: 'geoserver'
   })
 });
-
 
 const poiLayer = new ImageLayer({
   source: new ImageWMS({
     url: 'http://localhost:8080/geoserver/gis/wms',
+
     params: {
       LAYERS: 'gis:poi'
     },
+
     ratio: 1,
     serverType: 'geoserver'
   })
 });
 
-const overtureSource = new VectorSource({
-  url: '/overture.geojson',
-  format: new GeoJSON()
-});
-
-const overtureLayer = new VectorLayer({
-  source: overtureSource
-});
-
 const map = new Map({
   target: 'map',
+
   layers: [
-    baseLayer,
+    new TileLayer({
+      source: new OSM()
+    }),
+
     buildingsLayer,
     roadsLayer,
-    poiLayer,
-    overtureLayer   
+    poiLayer
   ],
+
   view: new View({
-    center: [49.2191, 53.5979], 
+    center: fromLonLat([49.28920, 53.59286]),
     zoom: 17
   })
 });
-
-applyStyle(overtureLayer, '/overture-style.json', 'overture');

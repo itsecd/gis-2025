@@ -2,13 +2,16 @@
 node_modules/
 dist/
 
+# Logs
 *.log
 
+# IDE
 .idea/
 .vscode/
 
+# GeoServer cache
 *.bak
 *.lck
 
-
+# Secrets
 tomcat_pass.txt
