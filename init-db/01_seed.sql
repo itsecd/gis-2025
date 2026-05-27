@@ -16,7 +16,7 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
-CREATE EXTENSION IF NOT EXISTS postgis;
+CREATE EXTENSION IF NOT EXISTS postgis WITH SCHEMA public;
 
 SET default_tablespace = '';
 
@@ -149,11 +149,18 @@ INSERT INTO public.buildings VALUES (10, '0106000020E610000001000000010300000001
 -- Data for Name: poi; Type: TABLE DATA; Schema: public; Owner: -
 --
 
+INSERT INTO public.poi (geom, version, building, "building:levels", "addr:street", "addr:city", id, "user", changeset, "addr:place", "addr:housenumber") VALUES (public.ST_Multi(public.ST_GeomFromText('POINT(49.974650 53.128360)', 4326)), '0', NULL, NULL, 'Солнечная улица', 'сельское поселение Воскресенка', 'poi/-1', 'alexandragorbuntsova', '183022012', 'СТ Рассвет', NULL);
+INSERT INTO public.poi (geom, version, building, "building:levels", "addr:street", "addr:city", id, "user", changeset, "addr:place", "addr:housenumber") VALUES (public.ST_Multi(public.ST_GeomFromText('POINT(49.975150 53.128120)', 4326)), '0', NULL, NULL, 'Солнечная улица', 'сельское поселение Воскресенка', 'poi/-2', 'alexandragorbuntsova', '183022012', 'СТ Рассвет', NULL);
+INSERT INTO public.poi (geom, version, building, "building:levels", "addr:street", "addr:city", id, "user", changeset, "addr:place", "addr:housenumber") VALUES (public.ST_Multi(public.ST_GeomFromText('POINT(49.973850 53.128540)', 4326)), '0', NULL, NULL, 'Солнечная улица', 'сельское поселение Воскресенка', 'poi/-3', 'alexandragorbuntsova', '183022012', 'СТ Рассвет', NULL);
+
 
 
 --
 -- Data for Name: roads; Type: TABLE DATA; Schema: public; Owner: -
 --
+
+INSERT INTO public.roads (geom, version, building, "building:levels", "addr:street", "addr:city", id, "user", changeset, "addr:place", "addr:housenumber") VALUES (public.ST_Multi(public.ST_GeomFromText('LINESTRING(49.972850 53.128050, 49.973600 53.128250, 49.974600 53.128360, 49.975450 53.128520, 49.976200 53.128760)', 4326)), '0', NULL, NULL, 'Солнечная улица', 'сельское поселение Воскресенка', 'way/-101', 'alexandragorbuntsova', '183022012', 'СТ Рассвет', NULL);
+INSERT INTO public.roads (geom, version, building, "building:levels", "addr:street", "addr:city", id, "user", changeset, "addr:place", "addr:housenumber") VALUES (public.ST_Multi(public.ST_GeomFromText('LINESTRING(49.973750 53.127820, 49.974050 53.128150, 49.974650 53.128360, 49.975000 53.128670)', 4326)), '0', NULL, NULL, 'Проезд СТ Рассвет', 'сельское поселение Воскресенка', 'way/-102', 'alexandragorbuntsova', '183022012', 'СТ Рассвет', NULL);
 
 
 

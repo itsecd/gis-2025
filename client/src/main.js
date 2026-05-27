@@ -8,29 +8,34 @@ import OSM from 'ol/source/OSM';
 import ImageWMS from 'ol/source/ImageWMS';
 import { fromLonLat } from 'ol/proj';
 
-const map = new Map({
-  target: 'map',
-  layers: [
-    new TileLayer({
-      source: new OSM(),
-    }),
-  ],
-  view: new View({
-    center: fromLonLat([49.9746, 53.1284]),
-    zoom: 17,
-  }),
-});
+const geoserverWmsUrl = 'http://localhost:8081/geoserver/gis/wms';
 
-const wmsLayer = new ImageLayer({
+const createWmsLayer = (layerName) => new ImageLayer({
   source: new ImageWMS({
-    url: 'http://localhost:8081/geoserver/gis/wms',
+    url: geoserverWmsUrl,
     params: {
-      LAYERS: 'gis:buildings',
+      LAYERS: layerName,
       TILED: true,
+      TRANSPARENT: true,
     },
     ratio: 1,
     serverType: 'geoserver',
   }),
 });
 
-map.addLayer(wmsLayer);
+const osmLayer = new TileLayer({
+  source: new OSM(),
+});
+
+const buildingsLayer = createWmsLayer('gis:buildings');
+const roadsLayer = createWmsLayer('gis:roads');
+const poiLayer = createWmsLayer('gis:poi');
+
+const map = new Map({
+  target: 'map',
+  layers: [osmLayer, buildingsLayer, roadsLayer, poiLayer],
+  view: new View({
+    center: fromLonLat([49.9746, 53.1284]),
+    zoom: 17,
+  }),
+});
