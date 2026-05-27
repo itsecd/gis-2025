@@ -9,10 +9,10 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^8.0.14"
+    "vite": "^8.0.12"
   },
   "dependencies": {
-    "duckdb": "^1.4.4",
-    "ol": "^10.9.0"
+    "ol": "^10.9.0",
+    "ol-mapbox-style": "^13.4.1"
   }
 }

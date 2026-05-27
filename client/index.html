@@ -1,46 +1,14 @@
-<!DOCTYPE html>
-<html lang="ru">
+<!doctype html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ЛР3: Overture Maps</title>
-    <style>
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { font-family: Arial, sans-serif; }
-      #map { width: 100%; height: 100vh; }
-      
-      #stats {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        background: white;
-        padding: 10px 15px;
-        border-radius: 4px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-        z-index: 1000;
-        font-size: 14px;
-      }
-      #stats span { font-weight: bold; color: #3498db; }
-      
-      #tooltip {
-        position: absolute;
-        background: rgba(0,0,0,0.85);
-        color: #fff;
-        padding: 10px 14px;
-        border-radius: 4px;
-        font-size: 12px;
-        pointer-events: none;
-        display: none;
-        z-index: 1001;
-        max-width: 250px;
-        line-height: 1.4;
-      }
-    </style>
+    <title>client</title>
   </head>
   <body>
     <div id="map"></div>
-    <div id="stats">Загрузка данных...</div>
-    <div id="tooltip"></div>
+
     <script type="module" src="/src/main.js"></script>
-  </body>
+</body>
 </html>
